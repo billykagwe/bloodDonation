@@ -1,9 +1,12 @@
+/** @format */
+
 html,
 body {
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  background-color: #ffd7d7;
 }
 
 a {
@@ -13,4 +16,157 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+.container-wrapper {
+  max-width: 600px;
+  margin: auto;
+  padding: 1rem;
+  margin-top: 1rem;
+  border-radius: 3px;
+  color: #34578a;
+  margin-bottom: 6rem;
+}
+
+h2 {
+  font-size: 2rem;
+  text-align: center;
+  color: #f1617a;
+}
+
+.names {
+  display: flex;
+  flex-direction: column;
+}
+
+.names * {
+  margin-bottom: 5px;
+}
+
+.docter-checkbox {
+  display: flex;
+  margin-top: -10px;
+  align-items: center;
+}
+
+.docter-checkbox div {
+  display: flex;
+  align-items: center;
+}
+
+.border-b {
+  border-bottom: 1px solid #d1d5db;
+  margin-bottom: 1rem;
+  padding-bottom: 10px;
+}
+
+p {
+  font-size: 19px;
+  color: #08335f;
+  line-height: 28px;
+  letter-spacing: 1px;
+  max-width: 600px;
+  font-weight: 300;
+  padding: 5px;
+}
+
+.birthdate-input {
+  display: flex;
+  align-items: center;
+}
+
+.birthdate-input select {
+  display: flex;
+  flex-direction: row;
+  width: 6rem;
+  padding: 8px;
+  border-radius: 2px;
+  margin-right: 3px;
+  margin: 0 1rem;
+  background-color: white;
+}
+
+.birthdate p {
+  margin: 0px;
+}
+
+span {
+  font-size: 13px;
+}
+
+.contact {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact * {
+  margin-bottom: 5px;
+}
+
+.submit {
+  display: block;
+  color: white;
+  border-radius: 3px;
+  cursor: pointer;
+  border: none;
+  padding: 5px;
+  font-size: 1.5rem;
+  margin: auto;
+  width: 100%;
+  font-weight: bold;
+  background: #f1617a;
+}
+
+label {
+  font-size: 14px;
+  color: rgb(28, 94, 168);
+  font-weight: 500;
+  margin-left: 10px;
+}
+
+.equipments {
+  border: 1px solid #e5e7eb;
+  padding: 4px;
+}
+
+.equipments span {
+  font-size: 13px;
+  display: block;
+  margin-left: 3px;
+  margin-bottom: 0;
+  color: black;
+  margin-top: 10px;
+}
+
+.section {
+  margin: auto;
+  background: #ffe9e9;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+input {
+  display: block;
+  max-width: 600px;
+  margin: 1rem 0;
+  padding: 10px;
+  border-radius: 3px;
+  border: 1px solid gray;
+  margin-bottom: 5px;
+}
+
+.checkbox {
+  display: inline-block;
+  height: 20px;
+  display: inline-block;
+  margin: 8px;
+  width: 20px;
+}
+
+.numberInput {
+  width: 6rem;
+  margin: 1rem 0;
+  padding: 10px;
+  border-radius: 3px;
+  border: 1px solid gray;
 }

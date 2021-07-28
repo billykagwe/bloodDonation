@@ -4,6 +4,7 @@ import { useMachine } from "@xstate/react";
 import { useState } from "react";
 import { Task } from "../utils/types";
 import { PromiseMachine } from "../machine/Promise.Machine";
+import Image from "next/image";
 
 export default function Home() {
   const [formData, setFormData] = useState({});
@@ -24,8 +25,16 @@ export default function Home() {
 
   return (
     <div className='container-wrapper'>
-      <div>
-        <h2>Blood Donation Form</h2>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+        }}>
+        <Image width={150} height={150} alt='logo' src='/logo.png' />
+
+        <h2 style={{ marginTop: "10px" }}>Blood Donation Form</h2>
       </div>
 
       {state.matches("loading") && <p>loading....</p>}
@@ -72,7 +81,7 @@ export default function Home() {
 
           <div className='border-b section'>
             <p>
-              If you are a doctor o other related proffesion would you like to
+              If you are a doctor or other related proffesion would you like to
               volunteer for your services to the community when needed
             </p>
             <div className='docter-checkbox'>

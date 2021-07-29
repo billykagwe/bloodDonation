@@ -45,10 +45,10 @@ export default function Home() {
           <div className='section'>
             <div className='section-label'>
               <p>
-                Dear Oshwals, please fill the following form that ask for your
-                personal and health related information. Please note this data
-                will only be used creating a database for blood donors in our
-                community
+                Dear well wisher, please fill the following form that ask for
+                your personal and health related information. Please note this
+                data will only be used creating a database for blood donors in
+                our community
               </p>
             </div>
             <div className='names border-b'>
@@ -81,8 +81,8 @@ export default function Home() {
 
           <div className='border-b section'>
             <p>
-              If you are a doctor or other related proffesion would you like to
-              volunteer for your services to the community when needed
+              If you are a doctor or medical related proffesion would you like
+              to volunteer for your services to the community when needed
             </p>
             <div className='docter-checkbox'>
               <div>
@@ -109,7 +109,7 @@ export default function Home() {
           </div>
 
           <div className='birthdate border-b section'>
-            <p>Please Fill Date of Birth</p>
+            <p> Date of Birth</p>
             <div className='birthdate-input'>
               <input
                 name='day'
@@ -204,8 +204,8 @@ export default function Home() {
           </div>
           <div className='section'>
             <p>
-              Do you hav of the following health equipments which can be lent to
-              Oshwals when they are in need?{" "}
+              Do you have any of the following health equipments which can be
+              lent to community members when they are in need?
             </p>
             <div className='contact border-b '>
               <div className='equipments'>

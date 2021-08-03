@@ -34,7 +34,7 @@ export default function Home() {
         }}>
         <Image width={150} height={150} alt='logo' src='/logo.png' />
 
-        <h2 style={{ marginTop: "10px" }}>Blood Donation Form</h2>
+        <h2 style={{ marginTop: "10px" }}>Blood Donors Data Collection Form</h2>
       </div>
 
       {state.matches("loading") && <p>loading....</p>}
@@ -45,12 +45,26 @@ export default function Home() {
           <div className='section'>
             <div className='section-label'>
               <p>
-                Dear well wisher, please fill the following form that ask for
-                your personal and health related information. Please note this
-                data will only be used creating a database for blood donors in
-                our community
+                Dear Well wisher,
+                <p>
+                  Please fill the following form that asks for your personal and
+                  health related information. Please note this data will only be
+                  used creating a database for blood donors in our community.
+                </p>
               </p>
             </div>
+
+            <div className='names border-b'>
+              <p>V.O.C Membership Number</p>
+              <input
+                style={{ marginTop: 0 }}
+                onChange={formDataChange}
+                className=''
+                type='number'
+                name='year'
+              />
+            </div>
+
             <div className='names border-b'>
               <input
                 onChange={formDataChange}
@@ -81,8 +95,9 @@ export default function Home() {
 
           <div className='border-b section'>
             <p>
-              If you are a doctor or medical related proffesion would you like
-              to volunteer for your services to the community when needed
+              If you are a doctor or in any medical related proffesion, would
+              you like to volunteer for your services to the community when
+              needed.
             </p>
             <div className='docter-checkbox'>
               <div>
@@ -155,9 +170,9 @@ export default function Home() {
           </div>
           <div className='section'>
             <p>
-              Are you willing to volunteer for blood donation when Team Oshwai
-              Care members will call or message for the requirement and also to
-              check for your availability
+              Will you volunteer for blood donation when there is a requirement
+              for your blood group. A Team Oshwal Care Member will call/message
+              you and check your availablity.
             </p>
             <div className='docter-checkbox border-b'>
               <div>
@@ -238,7 +253,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <p>
+          <p className='acknowledgment'>
             I hereby declare the information provided by me is correct and best
             of my knowledge
           </p>

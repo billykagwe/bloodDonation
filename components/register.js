@@ -4,6 +4,7 @@ import { useMachine } from "@xstate/react";
 import { useState } from "react";
 import { Task } from "../utils/types";
 import { PromiseMachine } from "../machine/Promise.Machine";
+import Image from "next/image";
 
 export default function Register() {
   const [formData, setFormData] = useState({});
@@ -24,6 +25,16 @@ export default function Register() {
 
   return (
     <div className='container-wrapper register mx-auto max-w-4xl'>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          marginTop: "3rem",
+        }}>
+        <Image width={150} height={150} alt='logo' src='/logo.png' />
+      </div>
       <div
         style={{
           display: "flex",

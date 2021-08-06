@@ -129,7 +129,10 @@ export default function Register() {
                 type='number'
                 placeholder='Day'
               />
-              <select name='month' onChange={formDataChange}>
+              <select
+                className='text-black'
+                name='month'
+                onChange={formDataChange}>
                 <option>Month</option>
                 {months?.map((month) => (
                   <option key={month}>{month}</option>

@@ -228,19 +228,23 @@ export default function Register() {
             </p>
             <div className='contact border-b '>
               <div className='equipments'>
-                <span>Stretcher</span>
+                <span>Stretcher</span>{" "}
+                <span className='italic text-sm'>Please upload a photo</span>
                 <input onChange={imageInput} name='stretcher' type='file' />
               </div>
               <div className='equipments'>
                 <span>A Medical Bed</span>
+                <span className='italic text-sm'>Please upload a photo</span>
                 <input onChange={imageInput} name='medicalBed' type='file' />
               </div>
               <div className='equipments'>
                 <span>Adult Walker</span>
+                <span className='italic text-sm'>Please upload a photo</span>
                 <input onChange={imageInput} name='adultWalker' type='file' />
               </div>
               <div className='equipments'>
                 <span>Oxygen Concentrator</span>
+                <span className='italic text-sm'>Please upload a photo</span>
                 <input
                   onChange={imageInput}
                   name='oxygenContentrator'
@@ -249,10 +253,12 @@ export default function Register() {
               </div>
               <div className='equipments'>
                 <span>Nebulizer</span>
+                <span className='italic text-sm'>Please upload a photo</span>
                 <input onChange={imageInput} name='nebulizer' type='file' />
               </div>
               <div className='equipments'>
                 <span>A Baby Crib</span>
+                <span className='italic text-sm'>Please upload a photo</span>
                 <input onChange={imageInput} name='babyCrib' type='file' />
               </div>
             </div>

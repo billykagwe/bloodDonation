@@ -9,7 +9,7 @@ function HomePage() {
   const [bloodGroup, setBloodGroup] = useState("");
   return (
     <div className=' mt-4 mx-2 '>
-      <div className='flex max-w-4xl mx-auto space-x-4    flex-wrap justify-end'>
+      <div className='flex max-w-4xl mx-auto sm:space-x-4    flex-wrap justify-end'>
         <select
           onChange={(e) => setBloodGroup(e.target.value)}
           name='bloodGroup'

@@ -166,6 +166,7 @@ input {
   border-radius: 3px;
   border: 1px solid gray;
   margin-bottom: 5px;
+  color: black;
 }
 
 .checkbox {

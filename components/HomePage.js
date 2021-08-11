@@ -24,7 +24,7 @@ function HomePage() {
       </div>
 
       {!data && isValidating && <p className='text-center'>loading...</p>}
-      <div className='flex max-w-4xl mx-auto space-x-4   flex-wrap justify-center'>
+      <div className='flex max-w-4xl mx-auto md:space-x-4   flex-wrap justify-center'>
         {data
           ?.filter((donor) =>
             bloodGroup ? donor?.bloodGroup === bloodGroup : donor

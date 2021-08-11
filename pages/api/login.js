@@ -16,7 +16,10 @@ const handler = async (req, res) => {
       .chain(comparePassword(password))
       .chain(signToken)
       .chain(setAuthHeader(res))
-      .fork(res.json, (x) => x);
+      .fork(
+        (x) => x,
+        (x) => x
+      );
   }
 };
 

@@ -7,7 +7,7 @@ import { PromiseMachine } from "../machine/Promise.Machine";
 import Image from "next/image";
 
 export default function Register() {
-  const [formData, setFormData] = useState({});
+  const [formData, setFormData] = useState({ phone: "+254" });
   const [equipmentImages, setEquipmentImages] = useState({});
 
   const formDataChange = (e) => {
@@ -170,6 +170,7 @@ export default function Register() {
               onChange={formDataChange}
               name='phone'
               type='text'
+              value={formData.phone}
               placeholder='+254 Mobile number'
             />
             <select
@@ -240,7 +241,7 @@ export default function Register() {
               Do you have any of the following health equipments which can be
               lent to the community members when they are in need?
             </p>
-            <div className='contact border-b '>
+            <div className='contact border-b  text-white'>
               <div className='equipments'>
                 <span>Stretcher</span>{" "}
                 <span className='italic text-sm'>Please upload a photo</span>

@@ -1,26 +1,33 @@
 /** @format */
 
-import React, { useState } from "react";
+import React from "react";
 import Image from "next/image";
-import Link from "next/link";
 import HomePage from "../components/HomePage";
+import Login from "../components/Login";
+import { useMachine } from "@xstate/react";
+import AuthMachine from "../machine/AuthMachine";
 function Index() {
-  const [tab, setTab] = useState("home");
-  const active = (val) => (val === tab ? "blue" : "black");
+  const [state, send] = useMachine(AuthMachine);
+
   return (
     <div>
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
-          marginTop: "3rem",
-        }}>
-        <Image width={150} height={150} alt='logo' src='/logo.png' />
-      </div>
+      {state.matches("login") && <Login />}
 
-      <HomePage />
+      {state.matches("home") && (
+        <>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
+              marginTop: "1rem",
+            }}>
+            <Image width={100} height={100} alt='logo' src='/logo.png' />
+          </div>
+          <HomePage />
+        </>
+      )}
     </div>
   );
 }

@@ -41,19 +41,15 @@ const setAuthHeader = (res) => (token) =>
     .json({ success: true });
 
 ////////////////////////////////////////////////////////////////////////////////////
-const comparePassword = (password) => (user) => {
-  console.log({ user, password });
-
-  return Task((rej, res) =>
+const comparePassword = (password) => (user) =>
+  Task((rej, res) =>
     bcrypt
       .compare(password, user?.password)
-      .then((isMatch) => {
-        console.log({ isMatch });
-        return isMatch ? res(user) : rej({ error: "Invalid Credentials" });
-      })
+      .then((isMatch) =>
+        isMatch ? res(user) : rej({ error: "Invalid Credentials" })
+      )
       .catch((err) => rej({ error: err }))
   );
-};
 
 ////////////////////////////////////////////////////////////////////////////
 const signToken = (user) => {

@@ -25,14 +25,7 @@ export default function Register() {
 
   return (
     <div className='container-wrapper register mx-auto max-w-4xl'>
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
-          marginTop: "3rem",
-        }}>
+      <div className='flex flex-col items-center justify-center mt-3'>
         <Image width={150} height={150} alt='logo' src='/logo.png' />
       </div>
       <div
@@ -135,6 +128,7 @@ export default function Register() {
             <p> Date of Birth</p>
             <div className='birthdate-input'>
               <input
+                onChange={formDataChange}
                 name='day'
                 className='numberInput'
                 type='number'

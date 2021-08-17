@@ -21,9 +21,10 @@ const insertData = (donors, data) =>
   Task((rej, res) =>
     donors
       .insertOne(data)
-      .then((x) =>
-        x?.insertedId ? res(x) : rej({ error: "Could not save data" })
-      )
+      .then((x) => {
+        console.log({ x });
+        return x?.insertedId ? res(x) : rej({ error: "Could not save data" });
+      })
       .catch(rej)
   );
 

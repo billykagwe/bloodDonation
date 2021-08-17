@@ -1,5 +1,7 @@
 /** @format */
 
+import { after } from "xstate/lib/actions";
+
 const { createMachine, assign } = require("xstate");
 
 const isValid = (data) => {
@@ -41,7 +43,6 @@ export const PromiseMachine = (operation) =>
             {
               target: "loading",
               cond: (context, event) => {
-                console.log({ event });
                 return isValid(event.data.formData);
               },
               actions: assign({
@@ -60,12 +61,30 @@ export const PromiseMachine = (operation) =>
       },
       loading: {
         invoke: {
-          src: (context) => operation(context.data),
-          onDone: { target: "success" },
-          onError: { target: "error" },
+          src: (context) => (callback) => {
+            operation(context.data).then((res) => {
+              if (res.keyPattern)
+                callback({ type: "ERROR", error: "User already exists" });
+              else callback("SUCCESS");
+            });
+          },
+        },
+        on: {
+          ERROR: "error",
+          SUCCESS: "success",
         },
       },
-      error: {},
+      error: {
+        entry: assign({
+          error: (context, event) => {
+            console.log({ event });
+            return event.error;
+          },
+        }),
+        on: {
+          RETRY: "idle",
+        },
+      },
       success: {
         after: {
           1000: {

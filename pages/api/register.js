@@ -55,7 +55,15 @@ const sendOnboardingEmail = (body) => {
         subject: "Blood Donation Registration",
         text: "Registration data uploaded successfully",
         html: `<strong>Dear ${firstName} ${lastName}  </strong> 
-         <p> Thank you for filling the registration form. Please find the details filled below </p>
+         <p> Thank you for voluntarily lending your forearm by filling the online blood donor registration form.  </p>
+         <p>When there is an emergency, it takes a lot of effort and time to make resources available to the needy.</p>
+         <p>With this initiative, you have contributed in reducing time and effort to find a suitable match for the needy.This saving in time can help in getting right treatment at the right timeto the patient.</p>
+         <br/>
+         <p>This is just a start, but your participation and suggestions can make this initiative a never ending.</p>
+         <br/>
+         <p>For any suggestins that can improve this noble cause, please email on blooddonors.toc@gmail.com.</p>
+         <br/>
+         <p>Please find your registration details below, you can ammend details b replying to this email with the details.</p>
          <p>Occupation: ${occupation}</p>
          <strong>Blood Group: ${bloodGroup}</strong>
          <p>Phone Number: ${phone}</p>
@@ -64,6 +72,9 @@ const sendOnboardingEmail = (body) => {
          <p>City: ${city} </p>
          <p>Date of Birth: ${day}/${month}/${year}</p>
         
+         <br/>
+         <p>Once again, thank you so much!</p>
+         <p>Team Oshwal Care</p>
       `,
       };
       sgMail

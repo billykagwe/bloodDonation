@@ -153,17 +153,6 @@ export default function Register() {
                   </p>
                 </p>
               </div>
-              {/* 
-            <div className='names border-b'>
-              <p>V.O.C Membership Number</p>
-              <input
-                style={{ marginTop: 0 }}
-                onChange={formDataChange}
-                className=''
-                type='number'
-                name='year'
-              />
-            </div> */}
 
               <div className='names border-b'>
                 <input

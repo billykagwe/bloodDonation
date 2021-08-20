@@ -87,7 +87,7 @@ export const PromiseMachine = (operation) =>
       },
       success: {
         after: {
-          1000: {
+          2000: {
             target: "idle",
             actions: assign({
               data: null,

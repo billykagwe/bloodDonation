@@ -42,24 +42,14 @@ export default function Register() {
         </div>
 
         {state.matches("loading") && (
-          <div
-            type='button'
-            className='bg-rose-600 mx-auto text-blue-700'
-            disabled>
-            <svg
-              xmlns='http://www.w3.org/2000/svg'
-              className='h-6 w-6 inline-block animate-spin'
-              fill='none'
-              viewBox='0 0 24 24'
-              stroke='currentColor'>
-              <path
-                strokeLinecap='round'
-                strokeLinejoin='round'
-                strokeWidth={2}
-                d='M8 12h.01M12 12h.01M16 12h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z'
-              />
-            </svg>
-            <span className='mx-3 text-lg'>Submitting </span>
+          <div className=' flex justify-center' disabled>
+            <Image
+              alt='loading...'
+              height={200}
+              width={200}
+              src='/spinner.svg'
+              className='block'
+            />
           </div>
         )}
         {state.matches("error") && (
@@ -128,11 +118,11 @@ export default function Register() {
                     id='modal-title'>
                     Registration Completed Successfully
                   </h3>
-                  <div className='mt-2'>
-                    <p className='text-sm text-gray-500'>
-                      Thank you for filling out the registration form. Please
-                      check your email inbox.
-                    </p>
+                  <div className='mt-2 text-sm bg-white text-gray-500'>
+                    <span className=' block'>
+                      Thank you for filling out the registration form.
+                    </span>
+                    <span>Please check your email inbox.</span>
                   </div>
                 </div>
               </div>
@@ -153,17 +143,6 @@ export default function Register() {
                   </p>
                 </p>
               </div>
-              {/* 
-            <div className='names border-b'>
-              <p>V.O.C Membership Number</p>
-              <input
-                style={{ marginTop: 0 }}
-                onChange={formDataChange}
-                className=''
-                type='number'
-                name='year'
-              />
-            </div> */}
 
               <div className='names border-b'>
                 <input

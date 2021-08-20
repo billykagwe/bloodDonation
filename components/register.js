@@ -118,11 +118,11 @@ export default function Register() {
                     id='modal-title'>
                     Registration Completed Successfully
                   </h3>
-                  <div className='mt-2'>
-                    <p className='text-sm bg-white text-gray-500'>
-                      Thank you for filling out the registration form. Please
-                      check your email inbox.
-                    </p>
+                  <div className='mt-2 text-sm bg-white text-gray-500'>
+                    <span className=' block'>
+                      Thank you for filling out the registration form.
+                    </span>
+                    <span>Please check your email inbox.</span>
                   </div>
                 </div>
               </div>
@@ -131,38 +131,6 @@ export default function Register() {
         )}
         {state.matches("idle") && (
           <div className='max-w-4xl w-full mx-auto '>
-            <div className='inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full'>
-              <div className='bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4'>
-                <div className='sm:flex sm:items-start'>
-                  <div className='mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-green-100 sm:mx-0 sm:h-10 sm:w-10'>
-                    <svg
-                      xmlns='http://www.w3.org/2000/svg'
-                      className='h-5 w-5'
-                      viewBox='0 0 20 20'
-                      fill='currentColor'>
-                      <path
-                        fillRule='evenodd'
-                        d='M5 2a1 1 0 011 1v1h1a1 1 0 010 2H6v1a1 1 0 01-2 0V6H3a1 1 0 010-2h1V3a1 1 0 011-1zm0 10a1 1 0 011 1v1h1a1 1 0 110 2H6v1a1 1 0 11-2 0v-1H3a1 1 0 110-2h1v-1a1 1 0 011-1zM12 2a1 1 0 01.967.744L14.146 7.2 17.5 9.134a1 1 0 010 1.732l-3.354 1.935-1.18 4.455a1 1 0 01-1.933 0L9.854 12.8 6.5 10.866a1 1 0 010-1.732l3.354-1.935 1.18-4.455A1 1 0 0112 2z'
-                        clipRule='evenodd'
-                      />
-                    </svg>
-                  </div>
-                  <div className='mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left'>
-                    <h3
-                      className='text-lg text-green-600 leading-6 font-medium '
-                      id='modal-title'>
-                      Registration Completed Successfully
-                    </h3>
-                    <div className='mt-2 text-sm bg-white text-gray-500'>
-                      <span className=' block'>
-                        Thank you for filling out the registration form.
-                      </span>
-                      <span>Please check your email inbox.</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
             <div className='section'>
               <div className='section-label'>
                 <p>

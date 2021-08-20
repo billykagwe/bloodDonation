@@ -69,10 +69,9 @@ const sendOnboardingEmail = (body) => {
         <body style=" margin: auto;padding: 10px;font-size: 20px;max-width: 800px; line-height:2rem; font-weight:500;font-family: 'Open Sans', Helvetica, Arial, sans-serif !important;letter-spacing:1.1px;margin:auto; ">
         <img src="http://cdn.mcauto-images-production.sendgrid.net/a8268fe13e13acd8/d12478f4-e4a0-4586-9e3a-5b85d6acfef2/911x729.png" style="height: 100px;display: block;margin-bottom: 16px;margin-top: 10px;">
           <strong>Dear ${firstName} ${lastName} </strong>
-          <p style="font-size: 20px;font-weight: 00;max-width: 600px;line-height:2.4rem;color:white;padding:5px 10px; border-radius:5px ">
+          <p style="font-size: 20px;font-weight: 00;max-width: 600px;line-height:2.4rem;padding:5px 10px; border-radius:5px ">
            " Thank you for voluntarily lending your forearm by filling the online blood
             donor registration form. 
-            
             </p>
             <p style="max-width: 700px;font-size: 16px;line-height: 25px;align-text: center;">When there is an emergency, it takes a lot of
             effort and time to make resources available to the needy. 
@@ -102,9 +101,9 @@ const sendOnboardingEmail = (body) => {
         
         
         </div>
-        <div style=" solid green;">
-        <p style="max-width: 700px;align-text: center;">Once again, thank you so much!</p>
-          <p style="max-width: 700px;font-size: 16px;align-text: center;">Team Oshwal Care</p>
+        <div style="">
+          <p style="max-width: 700px;align-text: center;font-size: 16px;">Once again, thank you so much!</p>
+          <p style="max-width: 700px;font-size: 16px;">Team Oshwal Care</p>
         </div>
         </body>
       </html>

@@ -327,33 +327,44 @@ export default function Register() {
                 <div className='equipments'>
                   <span>Stretcher</span>{" "}
                   <span className='italic text-sm'>Please upload a photo</span>
-                  <input onChange={imageInput} name='stretcher' type='file' />
+                  <input
+                    className='max-w-sm w-full'
+                    onChange={imageInput}
+                    name='stretcher'
+                    type='file'
+                  />
                 </div>
                 <div className='equipments'>
                   <span>A Medical Bed</span>
                   <span className='italic text-sm'>Please upload a photo</span>
-                  <input onChange={imageInput} name='medicalBed' type='file' />
+                  <input
+                    className='max-w-sm w-full'
+                    onChange={imageInput}
+                    name='medicalBed'
+                    type='file'
+                  />
                 </div>
                 <div className='equipments'>
                   <span>Adult Walker</span>
                   <span className='italic text-sm'>Please upload a photo</span>
-                  <input onChange={imageInput} name='adultWalker' type='file' />
+                  <input
+                    className='max-w-sm w-full'
+                    onChange={imageInput}
+                    name='adultWalker'
+                    type='file'
+                  />
                 </div>
                 <div className='equipments'>
                   <span>Oxygen Concentrator</span>
                   <span className='italic text-sm'>Please upload a photo</span>
                   <input
+                    className='max-w-sm w-full'
                     onChange={imageInput}
                     name='oxygenContentrator'
                     type='file'
                   />
-                </div>
-                <div className='equipments'>
-                  <span>Nebulizer</span>
-                  <span className='italic text-sm'>Please upload a photo</span>
-                  <input onChange={imageInput} name='nebulizer' type='file' />
-                  <div className='flex'>
-                    <div className=' '>
+                  <div className='flex items-center'>
+                    <div className=' flex items-baseline mr-3'>
                       <label>5 ltr</label>
                       <input
                         name='nebulizerType'
@@ -364,7 +375,7 @@ export default function Register() {
                         onChange={formDataChange}
                       />
                     </div>
-                    <div className='radio'>
+                    <div className='radio flex items-baseline mr-3'>
                       <label> 7 Ltr</label>
                       <input
                         name='nebulizerType'
@@ -375,7 +386,7 @@ export default function Register() {
                         onChange={formDataChange}
                       />
                     </div>
-                    <div className='radio '>
+                    <div className='radio flex items-baseline mr-3 '>
                       <label className=''> 10 ltr</label>
                       <input
                         name='nebulizerType'
@@ -389,9 +400,24 @@ export default function Register() {
                   </div>
                 </div>
                 <div className='equipments'>
+                  <span>Nebulizer</span>
+                  <span className='italic text-sm'>Please upload a photo</span>
+                  <input
+                    className='max-w-sm w-full'
+                    onChange={imageInput}
+                    name='nebulizer'
+                    type='file'
+                  />
+                </div>
+                <div className='equipments'>
                   <span>A Baby Crib</span>
                   <span className='italic text-sm'>Please upload a photo</span>
-                  <input onChange={imageInput} name='babyCrib' type='file' />
+                  <input
+                    className='max-w-sm w-full'
+                    onChange={imageInput}
+                    name='babyCrib'
+                    type='file'
+                  />
                 </div>
               </div>
             </div>

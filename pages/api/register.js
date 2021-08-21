@@ -69,28 +69,14 @@ const sendOnboardingEmail = (body) => {
         <body style=" margin: auto;padding: 10px;font-size: 20px;max-width: 800px; line-height:2rem; font-weight:500;font-family: 'Open Sans', Helvetica, Arial, sans-serif !important;letter-spacing:1.1px;margin:auto; ">
         <img src="http://cdn.mcauto-images-production.sendgrid.net/a8268fe13e13acd8/d12478f4-e4a0-4586-9e3a-5b85d6acfef2/911x729.png" style="height: 100px;display: block;margin-bottom: 16px;margin-top: 10px;">
           <strong>Dear ${firstName} ${lastName} </strong>
-          <p style="font-size: 20px;font-weight: 00;max-width: 600px;line-height:2.4rem;padding:5px 10px; border-radius:5px ">
-           " Thank you for voluntarily lending your forearm by filling the online blood
-            donor registration form. 
-            </p>
-            <p style="max-width: 700px;font-size: 16px;line-height: 25px;align-text: center;">When there is an emergency, it takes a lot of
-            effort and time to make resources available to the needy. 
-          </p><p style="max-width: 700px;font-size: 16px;line-height: 25px;align-text: center;"> With this initiative, you have contributed in reducing time and effort to find a
-            suitable match for the needy. This saving in time can help in getting
-            right treatment at the right time to the patient. 
-            </p>
-            <p style="max-width: 700px;font-size: 16px;line-height: 25px;align-text: center;">This is just a start,
-            but your participation and suggestions can make this initiative a never
-            ending journey. For any suggestions that can improve this noble cause,
-            please email on blooddonors.toc@gmail.com.
-            </p>
-            
+          Thank you for voluntarily lending your forearm by filling the online blood donor registration form. 
+When there is an emergency, it takes a lot of effort and time to make resources available to the needy patient. 
+With this initiative you have done a valuable contribution in reducing the time and effort to find suitable match for the needy. This saving in time can help in getting right treatment at the right time to the needy patient. 
+This is just a start, but your participation and suggestions can make this initiative a continuous chain. We hope this chain comprises of more and more members like you who are always available to help others and spread love and compassion for each other. 
+
             <div style=" border-radius:3px;  solid green;">
-            <p style="text-decoration: underline;max-width: 700px;font-size: 16px;line-height: 25px;align-text: center;">Please find your registration
-            details below, you can ammend details by replying to this email with the
-            details.
-          
-          </p>
+         For any suggestions that can improve this noble cause, please email on compassion@teamoshwalcare.com 
+Please find your registration details below, you can amend details by replying to this email with the change request.   
           
           <p style="max-width: 700px;font-size: 16px;line-height: 25px;align-text: center;">Occupation: ${occupation}</p>
           <strong>Blood Group: ${bloodGroup}</strong>
@@ -102,7 +88,7 @@ const sendOnboardingEmail = (body) => {
         
         </div>
         <div style="">
-          <p style="max-width: 700px;align-text: center;font-size: 16px;">Once again, thank you so much!</p>
+          <p style="max-width: 700px;align-text: center;font-size: 16px;">We thank you for your contribution for this noble cause. May god give you more and more strength to continue doing such benevolent activities.</p>
           <p style="max-width: 700px;font-size: 16px;">Team Oshwal Care</p>
         </div>
         </body>

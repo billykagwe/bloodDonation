@@ -5,6 +5,7 @@ import { useState } from "react";
 import { Task } from "../utils/types";
 import { PromiseMachine } from "../machine/Promise.Machine";
 import Image from "next/image";
+import Head from "next/head";
 
 export default function Register() {
   const [formData, setFormData] = useState({ phone: "+254" });
@@ -22,10 +23,19 @@ export default function Register() {
   };
 
   const [state, send] = useMachine(PromiseMachine(operation));
-  console.log(state.context.error);
   return (
     <>
-      <div className='container-wrapper register mx-auto max-w-4xl'>
+      <Head>
+        <title>My page title</title>
+        <meta name='viewport' content='initial-scale=1.0, width=device-width' />
+        <link rel='preconnect' href='https://fonts.googleapis.com' />
+        <link rel='preconnect' href='https://fonts.gstatic.com' crossOrigin />
+        <link
+          href='https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai&display=swap'
+          rel='stylesheet'
+        />
+      </Head>
+      <div className='container-wrapper font-medium register mx-auto max-w-4xl'>
         <div className='flex flex-col items-center justify-center mt-3'>
           <Image width={150} height={150} alt='logo' src='/logo.png' />
         </div>
@@ -281,7 +291,7 @@ export default function Register() {
                   <input
                     name='willingVolunteer'
                     value={"no"}
-                    className='checkbox'
+                    className='checkbox '
                     onChange={formDataChange}
                     type='checkbox'
                   />
@@ -342,6 +352,41 @@ export default function Register() {
                   <span>Nebulizer</span>
                   <span className='italic text-sm'>Please upload a photo</span>
                   <input onChange={imageInput} name='nebulizer' type='file' />
+                  <div className='flex'>
+                    <div className=' '>
+                      <label>5 ltr</label>
+                      <input
+                        name='nebulizerType'
+                        type='radio'
+                        className='w-10 '
+                        value='5 ltr'
+                        checked={formData.nebulizerType === "5 ltr"}
+                        onChange={formDataChange}
+                      />
+                    </div>
+                    <div className='radio'>
+                      <label> 7 Ltr</label>
+                      <input
+                        name='nebulizerType'
+                        type='radio'
+                        className='w-10 '
+                        value='7 ltr'
+                        checked={formData.nebulizerType === "7 ltr"}
+                        onChange={formDataChange}
+                      />
+                    </div>
+                    <div className='radio '>
+                      <label className=''> 10 ltr</label>
+                      <input
+                        name='nebulizerType'
+                        className='w-10 '
+                        type='radio'
+                        value='10 ltr'
+                        checked={formData.nebulizerType === "10 ltr"}
+                        onChange={formDataChange}
+                      />
+                    </div>
+                  </div>
                 </div>
                 <div className='equipments'>
                   <span>A Baby Crib</span>

@@ -70,9 +70,9 @@ const sendOnboardingEmail = (body) => {
         <img src="http://cdn.mcauto-images-production.sendgrid.net/a8268fe13e13acd8/d12478f4-e4a0-4586-9e3a-5b85d6acfef2/911x729.png" style="height: 100px;display: block;margin-bottom: 16px;margin-top: 10px;">
           <strong>Dear ${firstName} ${lastName} </strong>
           Thank you for voluntarily lending your forearm by filling the online blood donor registration form. 
-When there is an emergency, it takes a lot of effort and time to make resources available to the needy patient. 
-With this initiative you have done a valuable contribution in reducing the time and effort to find suitable match for the needy. This saving in time can help in getting right treatment at the right time to the needy patient. 
-This is just a start, but your participation and suggestions can make this initiative a continuous chain. We hope this chain comprises of more and more members like you who are always available to help others and spread love and compassion for each other. 
+<p>When there is an emergency, it takes a lot of effort and time to make resources available to the needy patient.</p> 
+<p>With this initiative you have done a valuable contribution in reducing the time and effort to find suitable match for the needy. This saving in time can help in getting right treatment at the right time to the needy patient. </p>
+<p>This is just a start, but your participation and suggestions can make this initiative a continuous chain. We hope this chain comprises of more and more members like you who are always available to help others and spread love and compassion for each other. </p>
 
             <div style=" border-radius:3px;  solid green;">
          For any suggestions that can improve this noble cause, please email on compassion@teamoshwalcare.com 

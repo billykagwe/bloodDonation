@@ -311,12 +311,6 @@ export default function Register() {
                 type='text'
                 placeholder='County'
               />
-              <input
-                name='nativePlace'
-                type='text'
-                onChange={formDataChange}
-                placeholder='Native Place in India'
-              />
             </div>
             <div className='section'>
               <p>

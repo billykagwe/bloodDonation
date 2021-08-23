@@ -97,8 +97,7 @@ const sendOnboardingEmail = (body) => {
       };
       return sgMail
         .send(msg)
-        .then((u) => {
-          console.log({ u });
+        .then(() => {
           return res({ Success: "Onboarding email sent" });
         })
         .catch(rej);

@@ -25,6 +25,25 @@ export default function Register() {
   const [state, send] = useMachine(PromiseMachine(operation));
   return (
     <>
+      <Head>
+        <title>Blood Donor Registration Form</title>
+        <meta name='viewport' content='initial-scale=1.0, width=device-width' />
+        <meta charSet='utf-8' />
+        <meta httpEquiv='X-UA-Compatible' content='IE=edge' />
+        <meta
+          name='viewport'
+          content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no'
+        />
+        <meta name='description' content='Description' />
+        <meta name='keywords' content='Keywords' />
+
+        <link
+          sizes='60x60'
+          rel='shortcut icon'
+          href='/logo.png'
+          type='image/x-icon'
+        />
+      </Head>
       <div className='container-wrapper font-medium register mx-auto max-w-4xl'>
         <div className='flex flex-col items-center justify-center mt-3'>
           <Image width={150} height={150} alt='logo' src='/logo.png' />

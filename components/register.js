@@ -26,7 +26,7 @@ export default function Register() {
   return (
     <>
       <Head>
-        <title>Blood Donor Registration Form</title>
+        <title>Team Oshwal Blood Donation</title>
         <meta name='viewport' content='initial-scale=1.0, width=device-width' />
         <meta charSet='utf-8' />
         <meta httpEquiv='X-UA-Compatible' content='IE=edge' />

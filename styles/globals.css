@@ -6,8 +6,6 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: "Roboto", sans-serif;
-  font-family: "IBM Plex Sans Thai", sans-serif;
   background-color: white;
   color: black;
 }
@@ -62,18 +60,6 @@ h2 {
   padding-bottom: 10px;
 }
 
-.register p {
-  font-size: 19px;
-  color: white;
-  line-height: 26px;
-  letter-spacing: 0.6px;
-  max-width: 600px;
-  padding: 5px;
-  font-weight: 500;
-  align-items: center;
-  margin-bottom: 1rem;
-}
-
 .birthdate-input {
   display: flex;
   align-items: center;
@@ -105,27 +91,6 @@ span {
 
 .contact * {
   margin-bottom: 5px;
-}
-
-.submit {
-  display: block;
-  color: white;
-  border-radius: 3px;
-  cursor: pointer;
-  border: none;
-  padding: 5px;
-  font-size: 1.5rem;
-  margin: auto;
-  width: 100%;
-  font-weight: bold;
-  background: #fb901f;
-}
-
-label {
-  font-size: 14px;
-  color: white;
-  font-weight: 500;
-  margin-left: 10px;
 }
 
 .equipments {
@@ -160,17 +125,6 @@ label {
 .section-label {
   display: flex;
   justify-content: center;
-}
-
-input {
-  display: block;
-  max-width: 600px;
-  margin: 1rem 0;
-  padding: 10px;
-  border-radius: 3px;
-  margin-bottom: 5px;
-  color: black;
-  font-weight: 500;
 }
 
 .checkbox {

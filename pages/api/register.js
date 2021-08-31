@@ -41,7 +41,7 @@ const sendOnboardingEmail = (body) => {
     year,
     city,
     county,
-    phone,
+    contactPhone,
   } = body;
   return () =>
     Task((rej, res) => {
@@ -81,12 +81,12 @@ const sendOnboardingEmail = (body) => {
           
           <p style="max-width: 700px;font-size: 14px;line-height: 25px;align-text: center;">Occupation: ${occupation}</p>
           <strong>Blood Group: ${bloodGroup}</strong>
-          <p style="max-width: 700px;font-size: 14px;line-height: 25px;align-text: center;">Phone Number: ${phone}</p>
+          <p style="max-width: 700px;font-size: 14px;line-height: 25px;align-text: center;">Phone Number: ${contactPhone}</p>
           <p style="max-width: 700px;font-size: 14px;line-height: 25px;align-text: center;">County: ${county}</p>
           <p style="max-width: 700px;font-size: 14px;line-height: 25px;align-text: center;">City: ${city}</p>
-          <p style="max-width: 700px;font-size: 14px;line-height: 25px;align-text: center;">Date of Birth: ${day}//${month}//${year}</p>
+          <p style="max-width: 700px;font-size: 14px;line-height: 25px;align-text: center;">Date of Birth: ${day}/${month}/${year}</p>
         
-        
+        <strong>Discaimer</strong>
         </div>
           <p style="max-width: 700px;font-size: 14px;line-height: 25px;align-text: center;">The information produced by the user of the form will be used in the same format by Team Oshwal Care for the purpose of helping the needy as per their requirements.</p>
           <p style="max-width: 700px;font-size: 14px;line-height: 25px;align-text: center;">This information will not be used for any commercial benefit.

@@ -87,7 +87,7 @@ const sendOnboardingEmail = (body) => {
         
         
         </div>
-          <p style="max-width: 700px;font-size: 14px;line-height: 25px;align-text: center;">The information will be used as it is filled by the user by Team Oshwal Care for the purposes of helping the needy as per the requirements</p>
+          <p style="max-width: 700px;font-size: 14px;line-height: 25px;align-text: center;">The information produced by the user of the form will be used in the same format by Team Oshwal Care for the purpose of helping the needy as per their requirements.</p>
           <p style="max-width: 700px;font-size: 14px;line-height: 25px;align-text: center;">This information will not be used for any commercial benefit.
             The purpose of this initiative is to help each other during need.</p>
           <p style="max-width: 700px;font-size: 14px;line-height: 25px;align-text: center;"> Information of the blood group of the donor in this form does not qualify a donor to donate blood to the needy patient. The donor must produce all his information to the doctor and seek further guidance on eligibility to donate at every instance of blood donation</p>

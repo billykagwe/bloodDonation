@@ -10,6 +10,7 @@ import Head from "next/head";
 export default function Register() {
   const [formData, setFormData] = useState({ phone: "+254" });
   const [equipmentImages, setEquipmentImages] = useState({});
+  const [checkedDisclaimer,setCheckDisclaimer] = useState(false)
 
   const formDataChange = (e) => {
     const { name, value } = e.target;
@@ -477,16 +478,21 @@ export default function Register() {
               </p>
             </div>
 
+            <div className='mt-8 flex space-x-2'>
+              <input checked={checkedDisclaimer} onChange={() => setCheckDisclaimer(!checkedDisclaimer)} type='checkbox' className='h-5 w-5 ' />
+                  <p className=' text-gray-700 inline-block '>The information provided by me is correct and I have read all the points mentioned in the disclaimer</p>
+              </div>
+
             {state.context.error && (
               <p style={{ color: "red" }}>{state.context.error}</p>
             )}
-            <button
+          { checkedDisclaimer && <button
               onClick={() =>
                 send({ type: "SUBMIT", data: { formData, equipmentImages } })
               }
               className='submit mt-8 block rounded p-2 w-full text-center bg-blue-600 '>
               Submit
-            </button>
+            </button>}
           </div>
         )}
       </div>

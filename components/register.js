@@ -244,12 +244,12 @@ export default function Register() {
                 <input
                   onChange={formDataChange}
                   name='day'
-                  className='numberInput'
+                  className='numberInput text-blue-800'
                   type='number'
                   placeholder='Day'
                 />
                 <select
-                  className='text-black'
+                  className='text-blue-800'
                   name='month'
                   onChange={formDataChange}>
                   <option>Month</option>
@@ -259,7 +259,7 @@ export default function Register() {
                 </select>
                 <input
                   onChange={formDataChange}
-                  className='numberInput'
+                  className='numberInput text-blue-800'
                   type='number'
                   name='year'
                   placeholder='Year'

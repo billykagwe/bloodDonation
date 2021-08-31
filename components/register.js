@@ -453,16 +453,13 @@ export default function Register() {
               </div>
             </div>
             <p className='mb-3 mt-5 text-gray-900 font-medium'>
-              I hereby declare the information provided by me is correct and
-              best of my knowledge
+              Disclaimer
             </p>
 
             <div className='text-gray-700 font-light flex space-y-2 flex-col '>
               <p>
                 <PointIcon />
-                Team Oshwal Care will use this information provided by the user
-                as it ifor the purposes of helping the needy for their relevant
-                requirements
+               The information will be used as it is filled by the user by Team Oshwal Care for the purposes of helping the needy as per the requirements
               </p>
               <p>
                 <PointIcon />
@@ -472,17 +469,11 @@ export default function Register() {
               </p>
               <p>
                 <PointIcon />
-                Information of blood group in this form does not qualify a donor
-                to donate blood to the needy patient. The donor must produce all
-                his information to the doctor and seek further guidance on
-                eligibility to donate or not at every instance of blood donation
+                Information of the blood group of the donor in this form does not qualify a donor to donate blood to the needy patient. The donor must produce all his information to the doctor and seek further guidance on eligibility to donate at every instance of blood donation
               </p>
               <p>
                 <PointIcon />
-                Team Oshwal Care is only responsible to pass on the information
-                as shared by the user on this form. It is the responsibility of
-                the donor and the party seeking help from the donor to verify
-                each other’s information before engaging in any transaction.
+                It is the responsibility of the donor and the party seeking help from the donor to verify each other’s information before engaging in any transaction. Team Oshwal Care will just share the information as provided by the user of this platform. Team Oshwal Care is not liable for any false or incorrect information.
               </p>
             </div>
 

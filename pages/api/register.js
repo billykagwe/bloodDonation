@@ -78,18 +78,27 @@ const sendOnboardingEmail = (body) => {
          For any suggestions that can improve this noble cause, please email on compassion@teamoshwalcare.com 
   Please find your registration details below, you can amend details by replying to this email with the change request.   
           
-          <p style="max-width: 700px;font-size: 16px;line-height: 25px;align-text: center;">Occupation: ${occupation}</p>
+          <p style="max-width: 700px;font-size: 14px;line-height: 25px;align-text: center;">Occupation: ${occupation}</p>
           <strong>Blood Group: ${bloodGroup}</strong>
-          <p style="max-width: 700px;font-size: 16px;line-height: 25px;align-text: center;">Phone Number: ${phone}</p>
-          <p style="max-width: 700px;font-size: 16px;line-height: 25px;align-text: center;">County: ${county}</p>
-          <p style="max-width: 700px;font-size: 16px;line-height: 25px;align-text: center;">City: ${city}</p>
-          <p style="max-width: 700px;font-size: 16px;line-height: 25px;align-text: center;">Date of Birth: ${day}//${month}//${year}</p>
+          <p style="max-width: 700px;font-size: 14px;line-height: 25px;align-text: center;">Phone Number: ${phone}</p>
+          <p style="max-width: 700px;font-size: 14px;line-height: 25px;align-text: center;">County: ${county}</p>
+          <p style="max-width: 700px;font-size: 14px;line-height: 25px;align-text: center;">City: ${city}</p>
+          <p style="max-width: 700px;font-size: 14px;line-height: 25px;align-text: center;">Date of Birth: ${day}//${month}//${year}</p>
         
         
         </div>
+          <p style="max-width: 700px;font-size: 14px;line-height: 25px;align-text: center;">The information will be used as it is filled by the user by Team Oshwal Care for the purposes of helping the needy as per the requirements</p>
+          <p style="max-width: 700px;font-size: 14px;line-height: 25px;align-text: center;">This information will not be used for any commercial benefit.
+            The purpose of this initiative is to help each other during need.</p>
+          <p style="max-width: 700px;font-size: 14px;line-height: 25px;align-text: center;"> Information of the blood group of the donor in this form does not qualify a donor to donate blood to the needy patient. The donor must produce all his information to the doctor and seek further guidance on eligibility to donate at every instance of blood donation</p>
+          <p style="max-width: 700px;font-size: 14px;line-height: 25px;align-text: center;"> It is the responsibility of the donor and the party seeking help from the donor to verify each other’s information before engaging in any transaction. Team Oshwal Care will just share the information as provided by the user of this platform. Team Oshwal Care is not liable for any false or incorrect information.</p>
+        <div>
+
+        </div>
+
         <div style="">
-          <p style="max-width: 700px;align-text: center;font-size: 16px;">We thank you for your contribution for this noble cause. May god give you more and more strength to continue doing such benevolent activities.</p>
-          <p style="max-width: 700px;font-size: 16px;">Team Oshwal Care</p>
+          <p style="max-width: 700px;align-text: center;font-size: 14px;">We thank you for your contribution for this noble cause. May god give you more and more strength to continue doing such benevolent activities.</p>
+          <p style="max-width: 700px;font-size: 14px;">Team Oshwal Care</p>
         </div>
         </body>
       </html>

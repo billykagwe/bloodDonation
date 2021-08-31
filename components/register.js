@@ -459,7 +459,7 @@ export default function Register() {
             <div className='text-gray-700 font-light flex space-y-2 flex-col '>
               <p>
                 <PointIcon />
-               The information will be used as it is filled by the user by Team Oshwal Care for the purposes of helping the needy as per the requirements
+               The information produced by the user of the form will be used in the same format by Team Oshwal Care for the purpose of helping the needy as per their requirements.
               </p>
               <p>
                 <PointIcon />

@@ -16,10 +16,7 @@ const handler = async (req, res) => {
       .chain(comparePassword(password))
       .chain(signToken)
       .chain(setAuthHeader(res))
-      .fork(
-        (x) => x,
-        (x) => x
-      );
+      .fork(res.json,res.json);
   }
 };
 
@@ -62,4 +59,6 @@ const signToken = (user) => {
 
 //////////////////////////////////////////////////////////////////////////////
 const findUser = (collection, email) =>
-  Task((rej, res) => collection.findOne({ email }).then(res).catch(rej));
+  Task((rej, res) => collection.findOne({ email }).then(user =>
+    user ? res(user) : rej({ error: "User not found" })
+  ).catch(rej));

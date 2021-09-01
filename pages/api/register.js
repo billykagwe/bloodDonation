@@ -21,10 +21,9 @@ const insertData = (donors, data) =>
     donors
       .insertOne(data)
       .then((x) => {
-        console.log({ x });
         return x?.insertedId ? res(x) : rej({ error: "Could not save data" });
       })
-      .catch(rej)
+      .catch(x => rej({error:x}))
   );
 
 //////////////////////////////////////////////////////////////////////////

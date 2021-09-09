@@ -78,14 +78,7 @@ export const PromiseMachine = (operation) =>
         },
       },
       success: {
-        after: {
-          2000: {
-            target: "idle",
-            actions: assign({
-              data: null,
-            }),
-          },
-        },
+        type:"final"
       },
     },
   });

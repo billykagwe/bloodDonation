@@ -48,17 +48,7 @@ export default function Register() {
         <div className='flex flex-col items-center justify-center mt-3'>
           <Image width={150} height={150} alt='logo' src='/logo.png' />
         </div>
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-          }}>
-          <h2 style={{ marginTop: "10px" }}>
-            Blood Donors Data Collection Form
-          </h2>
-        </div>
+      
 
         {state.matches("loading") && (
           <div className=' flex justify-center' disabled>
@@ -150,18 +140,19 @@ export default function Register() {
         )}
         {state.matches("idle") && (
           <div className='max-w-4xl w-full mx-auto '>
-            <div className='section'>
-              <div className='section-label'>
-                <p className='text-gray-200  text-lg  tracking-wide my-2 font-bold mb-4'>
-                  Dear Well wisher,
-                  <p className=' border-l-2 font-light pl-2 border-blue-300 rounded tracking-wide my-2 text-gray-200 text-lg  mb-4'>
-                    Please fill the following form that asks for your personal
-                    and health related information. Please note this data will
-                    only be used creating a database for blood donors in our
-                    community.
-                  </p>
-                </p>
+            <div className=''>  
+              <p className='text-gray-900 text-3xl mt-4 mb-2 text-center'>Dear Well wisher</p>
+               
+              <p className=' text-gray-600 text-lg mb-6 font-normal  text-center  leading-normal tracking-wide  '>
+                Please fill the following form that asks for your personal
+                and health related information. Please note this data will
+                only be used creating a database for blood donors in our
+                community.
+              </p>
+               
               </div>
+            <div className='section'>
+              
 
               <div className='names border-b'>
                 <div className='mt-1 '>
@@ -394,52 +385,7 @@ export default function Register() {
                   name={"adultWalker"}
                   imageInput={imageInput}
                 />
-                <div className='equipments'>
-                  <span>Oxygen Concentrator</span>
-                  <span className='italic text-sm'>Please upload a photo</span>
-                  <input
-                    className='max-w-sm w-full'
-                    onChange={imageInput}
-                    name='oxygenContentrator'
-                    type='file'
-                  />
-                  <div className='flex items-center'>
-                    <div className=' flex items-baseline mr-3'>
-                      <label>5 ltr</label>
-                      <input
-                        name='nebulizerType'
-                        type='radio'
-                        className='w-10 '
-                        value='5 ltr'
-                        checked={formData.nebulizerType === "5 ltr"}
-                        onChange={formDataChange}
-                      />
-                    </div>
-                    <div className='radio flex items-baseline mr-3'>
-                      <label> 7 Ltr</label>
-                      <input
-                        name='nebulizerType'
-                        type='radio'
-                        className='w-10 '
-                        value='7 ltr'
-                        checked={formData.nebulizerType === "7 ltr"}
-                        onChange={formDataChange}
-                      />
-                    </div>
-                    <div className='radio flex items-baseline mr-3 '>
-                      <label className=''> 10 ltr</label>
-                      <input
-                        name='nebulizerType'
-                        className='w-10 '
-                        type='radio'
-                        value='10 ltr'
-                        checked={formData.nebulizerType === "10 ltr"}
-                        onChange={formDataChange}
-                      />
-                    </div>
-                  </div>
-                </div>
-
+               <OxygenConcentrator imageInput={imageInput} formData={formData} formDataChange={formDataChange} />
                 <Equipment
                   label='Nebulizer'
                   name={"nebulizer"}
@@ -499,21 +445,98 @@ export default function Register() {
   );
 }
 
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+const OxygenConcentrator = ({ imageInput, formData, formDataChange }) => {
+  const [show,setShow] = useState()
+  return (
+    <div className='equipments border rounded border-blue-400'>
+      <div onClick={() => setShow(!show)}  className='p-2 flex justify-between cursor-pointer ' >
+        <span>Oxygen Concentrator</span>
+            {show && <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
+        </svg>}
+      { !show && <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+        </svg>}
+      </div>
+    {show &&  <div className='mx-2'>
+        <span className='italic text-sm'>Please upload a photo</span>
+        <input
+          className='max-w-sm w-full'
+          onChange={imageInput}
+          name='oxygenContentrator'
+          type='file'
+        />
+        <div className='flex items-center'>
+          <div className=' flex items-baseline mr-3'>
+            <label>5 ltr</label>
+            <input
+              name='nebulizerType'
+              type='radio'
+              className='w-10 '
+              value='5 ltr'
+              checked={formData.nebulizerType === "5 ltr"}
+              onChange={formDataChange}
+            />
+          </div>
+          <div className='radio flex items-baseline mr-3'>
+            <label> 7 Ltr</label>
+            <input
+              name='nebulizerType'
+              type='radio'
+              className='w-10 '
+              value='7 ltr'
+              checked={formData.nebulizerType === "7 ltr"}
+              onChange={formDataChange}
+            />
+          </div>
+          <div className='radio flex items-baseline mr-3 '>
+            <label className=''> 10 ltr</label>
+            <input
+              name='nebulizerType'
+              className='w-10 '
+              type='radio'
+              value='10 ltr'
+              checked={formData.nebulizerType === "10 ltr"}
+              onChange={formDataChange}
+            />
+          </div>
+        </div>
+        </div>}
+      </div>
+  )
+}
+
+
 ///////////////////////////////////////////////////////////////////////////////
 
 const Equipment = ({ label, imageInput, name }) => {
+  const [show,setShow] = useState(false) 
   return (
-    <div className='equipments'>
-      <span>{label}</span>
-      <span className='italic text-sm text-blue-400'>
-        Please upload a photo
-      </span>
-      <input
-        className='max-w-sm w-full text-sm my-2'
-        onChange={imageInput}
-        name={name}
-        type='file'
-      />
+    <div className='equipments border rounded border-blue-400'>
+      <div onClick={() => setShow(!show)}  className='p-2 flex justify-between cursor-pointer ' >
+        <span >{label}</span>
+       {show && <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
+        </svg>}
+      { !show && <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+        </svg>}
+      </div>
+     {show && <div  className='' >
+        <span className='italic text-sm text-blue-400'>
+          Please upload a photo
+        </span>
+        <input
+          className='max-w-sm w-full text-sm my-2'
+          onChange={imageInput}
+          name={name}
+          type='file'
+        />
+      </div>}
+     
     </div>
   );
 };

@@ -28,11 +28,6 @@ a {
   margin-bottom: 6rem;
 }
 
-h2 {
-  font-size: 2rem;
-  text-align: center;
-  color: #0f72be;
-}
 
 .names {
   display: flex;
@@ -94,7 +89,7 @@ span {
 }
 
 .equipments {
-  background: #2680c5;
+  
   padding: 4px;
   border-radius: 5px;
 }

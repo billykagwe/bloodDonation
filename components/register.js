@@ -454,12 +454,7 @@ const OxygenConcentrator = ({ imageInput, formData, formDataChange }) => {
     <div className='equipments border rounded border-blue-400'>
       <div onClick={() => setShow(!show)}  className='p-2 flex justify-between cursor-pointer ' >
         <span>Oxygen Concentrator</span>
-            {show && <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
-        </svg>}
-      { !show && <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-        </svg>}
+        <input className='h-4 w-4' type='checkbox' onChange={() => setShow(!show)} />
       </div>
     {show &&  <div className='mx-2'>
         <span className='italic text-sm'>Please upload a photo</span>
@@ -518,12 +513,7 @@ const Equipment = ({ label, imageInput, name }) => {
     <div className='equipments border rounded border-blue-400'>
       <div onClick={() => setShow(!show)}  className='p-2 flex justify-between cursor-pointer ' >
         <span >{label}</span>
-       {show && <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
-        </svg>}
-      { !show && <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-        </svg>}
+        <input className='h-4 w-4' type='checkbox' onChange={() => setShow(!show)} />
       </div>
      {show && <div  className='' >
         <span className='italic text-sm text-blue-400'>

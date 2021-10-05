@@ -19,16 +19,6 @@ a {
   box-sizing: border-box;
 }
 
-.container-wrapper {
-  max-width: 600px;
-  margin: auto;
-  padding: 0 1rem;
-  border-radius: 3px;
-  color: white;
-  margin-bottom: 6rem;
-}
-
-
 .names {
   display: flex;
   flex-direction: column;
@@ -89,7 +79,6 @@ span {
 }
 
 .equipments {
-  
   padding: 4px;
   border-radius: 5px;
 }

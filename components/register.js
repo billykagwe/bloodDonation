@@ -44,11 +44,10 @@ export default function Register() {
           type='image/x-icon'
         />
       </Head>
-      <div className='container-wrapper font-medium register mx-auto max-w-4xl'>
-        <div className='flex flex-col items-center justify-center mt-3'>
+      <div className='p-4  font-medium register mx-auto max-w-4xl'>
+        <div className='flex flex-col items-center justify-center pt-3'>
           <Image width={150} height={150} alt='logo' src='/logo.png' />
         </div>
-      
 
         {state.matches("loading") && (
           <div className=' flex justify-center' disabled>
@@ -139,21 +138,20 @@ export default function Register() {
           </div>
         )}
         {state.matches("idle") && (
-          <div className='max-w-4xl w-full mx-auto '>
-            <div className=''>  
-              <p className='text-gray-900 text-3xl mt-4 mb-2 text-center'>Dear Well wisher</p>
-               
-              <p className=' text-gray-600 text-lg mb-6 font-normal  text-center  leading-normal tracking-wide  '>
-                Please fill the following form that asks for your personal
-                and health related information. Please note this data will
-                only be used creating a database for blood donors in our
-                community.
+          <div className='max-w-4xl w-full mx-auto  '>
+            <div className=' mb-8 border-t  '>
+              <p className='text-gray-900 text-3xl mt-4 mb-4'>
+                Dear Well wisher
               </p>
-               
-              </div>
-            <div className='section'>
-              
 
+              <p className=' text-gray-900  text-lg  leading-7   mb-8 font-normal    '>
+                Please fill the following form that asks for your personal and
+                health related information. Please note this data will only be
+                used creating a database for blood donors in our community.
+              </p>
+            </div>
+            <DonationRequirements />
+            <div className='section'>
               <div className='names border-b'>
                 <div className='mt-1 '>
                   <label className='text-xs text-blue-100'>First Name *</label>
@@ -385,7 +383,11 @@ export default function Register() {
                   name={"adultWalker"}
                   imageInput={imageInput}
                 />
-               <OxygenConcentrator imageInput={imageInput} formData={formData} formDataChange={formDataChange} />
+                <OxygenConcentrator
+                  imageInput={imageInput}
+                  formData={formData}
+                  formDataChange={formDataChange}
+                />
                 <Equipment
                   label='Nebulizer'
                   name={"nebulizer"}
@@ -398,44 +400,56 @@ export default function Register() {
                 />
               </div>
             </div>
-            <p className='mb-3 mt-5 text-gray-900 font-medium'>
+            <p className='mb-6 text-4xl italic underline  mt-10 text-gray-900 font-medium'>
               Disclaimer
             </p>
 
-            <div className='text-gray-700 font-light flex space-y-2 flex-col '>
+            <div className='text-gray-800 text-normal leading-8  font-normal  flex space-y-4 flex-col '>
+              <div className='flex space-x-3'>
+                <p>
+                  <span className='text-3xl'>T</span>he information produced by
+                  the user of the form will be used in the same format by Team
+                  Oshwal Care for the purpose of helping the needy as per their
+                  requirements.
+                </p>
+              </div>
               <p>
-                <PointIcon />
-               The information produced by the user of the form will be used in the same format by Team Oshwal Care for the purpose of helping the needy as per their requirements.
+                <span className='text-3xl'>T</span>his information will not be
+                used for any commercial benefit. The purpose of this initiative
+                is to help each other during need.
               </p>
               <p>
-                <PointIcon />
-                This information will not be used for any commercial benefit.
-                The purpose of this initiative is to help each other during
-                need.
+                <span className='text-3xl'>I</span>nformation of the blood group
+                of the donor in this form does not qualify a donor to donate
+                blood to the needy patient. The donor must produce all his
+                information to the doctor and seek further guidance on
+                eligibility to donate at every instance of blood donation
               </p>
               <p>
-                <PointIcon />
-                Information of the blood group of the donor in this form does not qualify a donor to donate blood to the needy patient. The donor must produce all his information to the doctor and seek further guidance on eligibility to donate at every instance of blood donation
-              </p>
-              <p>
-                <PointIcon />
-                It is the responsibility of the donor and the party seeking help from the donor to verify each other’s information before engaging in any transaction. Team Oshwal Care will just share the information as provided by the user of this platform. Team Oshwal Care is not liable for any false or incorrect information.
+                <span className='text-3xl'>I</span>t is the responsibility of
+                the donor and the party seeking help from the donor to verify
+                each other’s information before engaging in any transaction.
+                Team Oshwal Care will just share the information as provided by
+                the user of this platform. Team Oshwal Care is not liable for
+                any false or incorrect information.
               </p>
             </div>
 
             <div className='mt-8 flex '>
-              
-                  <p className=' text-gray-700 inline-block  '>The information provided by me is correct and I have read all the points mentioned in the disclaimer</p>
-              </div>
+              <p className=' text-gray-700 inline-block  '>
+                The information provided by me is correct and I have read all
+                the points mentioned in the disclaimer
+              </p>
+            </div>
 
             {state.context.error && (
               <p style={{ color: "red" }}>{state.context.error}</p>
             )}
-           <button
+            <button
               onClick={() =>
                 send({ type: "SUBMIT", data: { formData, equipmentImages } })
               }
-              className='submit mt-8 block rounded p-2 w-full text-center bg-blue-600 '>
+              className='submit mt-8 block rounded p-2 w-full text-center bg-black text-white '>
               Submit
             </button>
           </div>
@@ -445,110 +459,121 @@ export default function Register() {
   );
 }
 
-
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 const OxygenConcentrator = ({ imageInput, formData, formDataChange }) => {
-  const [show,setShow] = useState()
+  const [show, setShow] = useState();
   return (
     <div className='equipments border rounded border-blue-400'>
-      <div onClick={() => setShow(!show)}  className='p-2 flex justify-between cursor-pointer ' >
+      <div
+        onClick={() => setShow(!show)}
+        className='p-2 flex justify-between cursor-pointer '>
         <span>Oxygen Concentrator</span>
-        <input className='h-4 w-4' type='checkbox' onChange={() => setShow(!show)} />
-      </div>
-    {show &&  <div className='mx-2'>
-        <span className='italic text-sm'>Please upload a photo</span>
         <input
-          className='max-w-sm w-full'
-          onChange={imageInput}
-          name='oxygenContentrator'
-          type='file'
+          className='h-4 w-4'
+          type='checkbox'
+          onChange={() => setShow(!show)}
         />
-        <div className='flex items-center'>
-          <div className=' flex items-baseline mr-3'>
-            <label>5 ltr</label>
-            <input
-              name='nebulizerType'
-              type='radio'
-              className='w-10 '
-              value='5 ltr'
-              checked={formData.nebulizerType === "5 ltr"}
-              onChange={formDataChange}
-            />
-          </div>
-          <div className='radio flex items-baseline mr-3'>
-            <label> 7 Ltr</label>
-            <input
-              name='nebulizerType'
-              type='radio'
-              className='w-10 '
-              value='7 ltr'
-              checked={formData.nebulizerType === "7 ltr"}
-              onChange={formDataChange}
-            />
-          </div>
-          <div className='radio flex items-baseline mr-3 '>
-            <label className=''> 10 ltr</label>
-            <input
-              name='nebulizerType'
-              className='w-10 '
-              type='radio'
-              value='10 ltr'
-              checked={formData.nebulizerType === "10 ltr"}
-              onChange={formDataChange}
-            />
+      </div>
+      {show && (
+        <div className='mx-2'>
+          <span className='italic text-sm'>Please upload a photo</span>
+          <input
+            className='max-w-sm w-full'
+            onChange={imageInput}
+            name='oxygenContentrator'
+            type='file'
+          />
+          <div className='flex items-center'>
+            <div className=' flex items-baseline mr-3'>
+              <label>5 ltr</label>
+              <input
+                name='nebulizerType'
+                type='radio'
+                className='w-10 '
+                value='5 ltr'
+                checked={formData.nebulizerType === "5 ltr"}
+                onChange={formDataChange}
+              />
+            </div>
+            <div className='radio flex items-baseline mr-3'>
+              <label> 7 Ltr</label>
+              <input
+                name='nebulizerType'
+                type='radio'
+                className='w-10 '
+                value='7 ltr'
+                checked={formData.nebulizerType === "7 ltr"}
+                onChange={formDataChange}
+              />
+            </div>
+            <div className='radio flex items-baseline mr-3 '>
+              <label className=''> 10 ltr</label>
+              <input
+                name='nebulizerType'
+                className='w-10 '
+                type='radio'
+                value='10 ltr'
+                checked={formData.nebulizerType === "10 ltr"}
+                onChange={formDataChange}
+              />
+            </div>
           </div>
         </div>
-        </div>}
-      </div>
-  )
-}
-
-
-///////////////////////////////////////////////////////////////////////////////
-
-const Equipment = ({ label, imageInput, name }) => {
-  const [show,setShow] = useState(false) 
-  return (
-    <div className='equipments border rounded border-blue-400'>
-      <div onClick={() => setShow(!show)}  className='p-2 flex justify-between cursor-pointer ' >
-        <span >{label}</span>
-        <input className='h-4 w-4' type='checkbox' onChange={() => setShow(!show)} />
-      </div>
-     {show && <div  className='' >
-        <span className='italic text-sm text-blue-400'>
-          Please upload a photo
-        </span>
-        <input
-          className='max-w-sm w-full text-sm my-2'
-          onChange={imageInput}
-          name={name}
-          type='file'
-        />
-      </div>}
-     
+      )}
     </div>
   );
 };
 
 ///////////////////////////////////////////////////////////////////////////////
-const PointIcon = () => {
+
+const Equipment = ({ label, imageInput, name }) => {
+  const [show, setShow] = useState(false);
   return (
-    <span className='block mb-2 mt-4'>
-      <svg
-        xmlns='http://www.w3.org/2000/svg'
-        className='h-6 w-6'
-        fill='none'
-        viewBox='0 0 24 24'
-        stroke='currentColor'>
-        <path
-          strokeLinecap='round'
-          strokeLinejoin='round'
-          strokeWidth={2}
-          d='M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z'
+    <div className='equipments border rounded border-blue-400'>
+      <div
+        onClick={() => setShow(!show)}
+        className='p-2 flex justify-between cursor-pointer '>
+        <span>{label}</span>
+        <input
+          className='h-4 w-4'
+          type='checkbox'
+          onChange={() => setShow(!show)}
         />
-      </svg>
-    </span>
+      </div>
+      {show && (
+        <div className=''>
+          <span className='italic text-sm text-blue-400'>
+            Please upload a photo
+          </span>
+          <input
+            className='max-w-sm w-full text-sm my-2'
+            onChange={imageInput}
+            name={name}
+            type='file'
+          />
+        </div>
+      )}
+    </div>
+  );
+};
+
+///////////////////////////////////////////////////////////////////////////////
+const DonationRequirements = () => {
+  return (
+    <div className='text-blue-900 bg-blue-100 p-2 font-normal  my-4'>
+      <p className='text-xl my-3 text-blue-800 font-medium'>
+        You can only donate blood if:
+      </p>
+      <ol className='list-disc p-2 px-4 flex space-y-2 flex-col'>
+        <li>Fit and helthy</li>
+        <li>Between age 18 and 55 years</li>
+        <li>Weight is more than 50 kgs</li>
+        <li>Its been more than 6 months since you got a tatoo</li>
+        <li>Taking anti-depressants at the normal prescribed doses</li>
+        <li>Taking blood medications and blood pressure is stable</li>
+      </ol>
+    </div>
   );
 };
 

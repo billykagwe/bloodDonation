@@ -8,6 +8,7 @@ body {
   margin: 0;
   background-color: white;
   color: black;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
 a {
@@ -100,7 +101,7 @@ span {
 
 .section {
   margin: auto;
-  background: #0f72be;
+  background: #60a5fa;
   padding: 1rem;
   margin-bottom: 1rem;
   border-radius: 5px;

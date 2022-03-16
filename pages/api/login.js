@@ -42,9 +42,10 @@ const comparePassword = (password) => (user) =>
   Task((rej, res) =>
     bcrypt
       .compare(password, user?.password)
-      .then((isMatch) =>
-        isMatch ? res(user) : rej({ error: "Invalid Credentials" })
-      )
+      .then((isMatch) =>{
+        console.log({isMatch})
+        return isMatch ? res(user) : rej({ error: "Invalid Credentials" })
+      })
       .catch((err) => rej({ error: err }))
   );
 

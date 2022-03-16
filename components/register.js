@@ -23,6 +23,7 @@ export default function Register() {
   };
 
   const [state, send] = useMachine(PromiseMachine(operation));
+  const [agreed,setAgreed] = useState(false)
   return (
     <>
       <Head>
@@ -138,13 +139,13 @@ export default function Register() {
           </div>
         )}
         {state.matches("idle") && (
-          <div className='max-w-4xl w-full mx-auto  '>
-            <div className=' mb-8 border-t  '>
+          <div className='max-w-xl w-full mx-auto  '>
+            <div className=' my-4 border-t  '>
               <p className='text-gray-900 text-3xl mt-4 mb-4'>
                 Dear Well wisher
               </p>
 
-              <p className=' text-gray-900  text-lg  leading-7   mb-8 font-normal    '>
+              <p className=' text-gray-600 font-normal  text-md  leading-7       '>
                 Please fill the following form that asks for your personal and
                 health related information. Please note this data will only be
                 used creating a database for blood donors in our community.
@@ -154,7 +155,7 @@ export default function Register() {
             <div className='section'>
               <div className='names border-b'>
                 <div className='mt-1 '>
-                  <label className='text-xs text-blue-100'>First Name *</label>
+                  <label className='text-xs text-white'>First Name *</label>
                   <input
                     onChange={formDataChange}
                     name='firstName'
@@ -163,7 +164,7 @@ export default function Register() {
                   />
                 </div>
                 <div className='mt-1 '>
-                  <label className='text-xs text-blue-100'>Middle Name *</label>
+                  <label className='text-xs text-white'>Middle Name *</label>
 
                   <input
                     onChange={formDataChange}
@@ -173,7 +174,7 @@ export default function Register() {
                   />
                 </div>
                 <div className='mt-1 '>
-                  <label className='text-xs text-blue-100'>Last Name *</label>
+                  <label className='text-xs text-white'>Last Name *</label>
 
                   <input
                     onChange={formDataChange}
@@ -183,7 +184,7 @@ export default function Register() {
                   />
                 </div>
                 <div className='mt-1 '>
-                  <label className='text-xs text-blue-100'>Occupation *</label>
+                  <label className='text-xs text-white'>Occupation *</label>
 
                   <input
                     onChange={formDataChange}
@@ -195,8 +196,8 @@ export default function Register() {
               </div>
             </div>
 
-            <div className='border-b section'>
-              <p className='text-gray-200 text-lg  tracking-wide my-2 font-light mb-4'>
+            {/* <div className='border-b section'>
+              <p className='text--200 text-lg  tracking-wide my-2 font-light mb-4'>
                 If you are a doctor or in any medical related proffesion, would
                 you like to volunteer for your services to the community when
                 needed.
@@ -223,10 +224,10 @@ export default function Register() {
                   />
                 </div>
               </div>
-            </div>
+            </div> */}
 
             <div className='birthdate border-b section'>
-              <p className='text-gray-200 text-lg  tracking-wide my-2 font-light mb-4'>
+              <p className='text-white text-lg  tracking-wide my-2 font-light mb-4'>
                 Date of Birth
               </p>
               <div className='birthdate-input'>
@@ -257,8 +258,8 @@ export default function Register() {
               <span>E.g 12 October 1983</span>
             </div>
             <div className='contact section'>
-              <div className='mt-1 text-blue-100'>
-                <label className='text-xs text-blue-100'>Email</label>
+              <div className='mt-1 text-white'>
+                <label className='text-xs text-white'>Email</label>
                 <input
                   className='p-2 rounded w-full text-blue-800 font-medium'
                   onChange={formDataChange}
@@ -267,7 +268,7 @@ export default function Register() {
                 />
               </div>
               <div className='mt-1 '>
-                <label className='text-xs text-blue-100'>
+                <label className='text-xs text-white'>
                   Contact Phone Number
                 </label>
                 <input
@@ -279,7 +280,7 @@ export default function Register() {
                 />
               </div>
               <div className='mt-1'>
-                <label className='text-xs text-blue-100'>
+                <label className='text-xs text-white'>
                   Whatsapp Phone Number
                 </label>
                 <input
@@ -293,7 +294,7 @@ export default function Register() {
             </div>
             <div className='section'>
               <div className='mt-1 '>
-                <label className='text-xs text-blue-100'>
+                <label className='text-xs text-white'>
                   Select Blood Group
                 </label>
                 <select
@@ -312,7 +313,7 @@ export default function Register() {
               </div>
             </div>
             <div className='section'>
-              <p className='text-gray-200 text-lg  tracking-wide my-2 font-light mb-4'>
+              <p className='text-white text-md font-medium  my-2  mb-8'>
                 Will you volunteer for blood donation when there is a
                 requirement for your blood group. A Team Oshwal Care Member will
                 call/message you and check your availablity.
@@ -342,7 +343,7 @@ export default function Register() {
             </div>
             <div className='contact border-b section'>
               <div className='mt-1'>
-                <label className='text-xs text-blue-100'>Current City *</label>
+                <label className='text-xs text-white'>Current City *</label>
                 <input
                   onChange={formDataChange}
                   name='city'
@@ -351,7 +352,7 @@ export default function Register() {
                 />
               </div>
               <div className='mt-1'>
-                <label className='text-xs text-blue-100'>County</label>
+                <label className='text-xs text-white'>County</label>
 
                 <input
                   onChange={formDataChange}
@@ -361,9 +362,9 @@ export default function Register() {
                 />
               </div>
             </div>
-
+{/* 
             <div className='section'>
-              <p className='text-gray-200 text-lg  tracking-wide my-2 font-light mb-4'>
+              <p className='text-white text-lg  tracking-wide my-2 font-light mb-4'>
                 Do you have any of the following health equipments which can be
                 lent to the community members when they are in need?
               </p>
@@ -399,12 +400,12 @@ export default function Register() {
                   imageInput={imageInput}
                 />
               </div>
-            </div>
+            </div> */}
             <p className='mb-6 text-4xl italic underline  mt-10 text-gray-900 font-medium'>
               Disclaimer
             </p>
 
-            <div className='text-gray-800 text-normal leading-8  font-normal  flex space-y-4 flex-col '>
+            <div className='text-gray-600 text-normal leading-8  font-normal  flex space-y-4 flex-col '>
               <div className='flex space-x-3'>
                 <p>
                   <span className='text-3xl'>T</span>he information produced by
@@ -435,21 +436,22 @@ export default function Register() {
               </p>
             </div>
 
-            <div className='mt-8 flex '>
-              <p className=' text-gray-700 inline-block  '>
+            <div className='mt-8 flex items-center space-x-4 '>
+              <input checked={agreed} onChange={() => setAgreed(!agreed)} className="h-8 w-8" type="checkbox" />
+              <p className=' text-gray-900 inline-block    '>
                 The information provided by me is correct and I have read all
                 the points mentioned in the disclaimer
               </p>
             </div>
 
             {state.context.error && (
-              <p style={{ color: "red" }}>{state.context.error}</p>
+              <p style={{  color: "red" }}>{state.context.error}</p>
             )}
             <button
               onClick={() =>
                 send({ type: "SUBMIT", data: { formData, equipmentImages } })
               }
-              className='submit mt-8 block rounded p-2 w-full text-center bg-black text-white '>
+              className={`submit mt-8 block rounded p-2 w-full text-center ${agreed ? 'bg-blue-600' : 'bg-gray-200' } text-white `}>
               Submit
             </button>
           </div>
@@ -561,11 +563,11 @@ const Equipment = ({ label, imageInput, name }) => {
 ///////////////////////////////////////////////////////////////////////////////
 const DonationRequirements = () => {
   return (
-    <div className='text-blue-900 bg-blue-100 p-2 font-normal  my-4'>
-      <p className='text-xl my-3 text-blue-800 font-medium'>
+    <div className='text-blue-900 bg-blue-50 p-2 font-normal '>
+      <p className=' text-md font-bold mt-2 text-blue-800 '>
         You can only donate blood if:
       </p>
-      <ol className='list-disc p-2 px-4 flex space-y-2 flex-col'>
+      <ol className='list-disc p-2 px-4 text-blue-800 text-sm flex space-y-2 flex-col'>
         <li>Fit and helthy</li>
         <li>Between age 18 and 55 years</li>
         <li>Weight is more than 50 kgs</li>

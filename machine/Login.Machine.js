@@ -27,7 +27,7 @@ const LoginMachine = createMachine({
             .then((data) =>
               data?.error ? callback("ERROR") : callback("SUCCESS")
             )
-            .catch(() => callback("IDLE"));
+            .catch(() => callback("ERROR"));
         },
       },
       on: {

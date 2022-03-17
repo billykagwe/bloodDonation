@@ -15,8 +15,8 @@ const handler = async (req, res) => {
     findUser(collection, email)
       .chain(comparePassword(password))
       .chain(signToken)
-      .chain(setAuthHeader(res))
-      .fork(res.json,res.json);
+      // .chain(setAuthHeader(res))
+      .fork(res.json,setAuthHeader(res));
   }
 };
 

@@ -4,6 +4,7 @@
 import { connectToDatabase } from "../../utils/database";
 import sgMail from "@sendgrid/mail";
 import { Task } from "../../utils/types";
+import nodemailer from 'nodemailer'
 
 export default async function handler(req, res) {
   if (req.method === "POST") {
@@ -44,7 +45,21 @@ const sendOnboardingEmail = (body) => {
   } = body;
   return () =>
     Task((rej, res) => {
-      sgMail.setApiKey(process.env.SENDGRID_KEY);
+
+      let transporter = nodemailer.createTransport({
+        host: "smtp.zoho.com",
+        port: 587,
+        secure: false, // true for 465, false for other ports
+        auth: {
+          user: 'compassion@teamoshwalcare.com', // generated ethereal user
+          pass: 'TOC@2020', // generated ethereal password
+        },
+      });
+
+
+     
+
+      // sgMail.setApiKey(process.env.SENDGRID_KEY);
 
       const msg = {
         to: email, // Change to your recipient
@@ -66,7 +81,7 @@ const sendOnboardingEmail = (body) => {
           </style>
 
         </head>
-        <body style=" margin: auto;padding: 10px;font-size: 16px;max-width: 800px; line-height:2rem; font-family: 'Open Sans', Helvetica, Arial, sans-serif !important;letter-spacing:1.1px;margin:auto; ">
+        <body style=" margin: auto;padding: 10px;font-size: 12px;max-width: 800px; line-height:1rem; font-family: 'Open Sans', Helvetica, Arial, sans-serif !important;letter-spacing:1.1px;margin:auto; ">
         <img src="http://cdn.mcauto-images-production.sendgrid.net/a8268fe13e13acd8/d12478f4-e4a0-4586-9e3a-5b85d6acfef2/911x729.png" style="height: 100px;display: block;margin-bottom: 16px;margin-top: 10px;">
           <strong>Dear ${firstName} ${middleName} ${lastName} </strong>
           Thank you for voluntarily lending your forearm by filling the online blood donor registration form. 
@@ -104,10 +119,9 @@ const sendOnboardingEmail = (body) => {
       </html>
         `,
       };
-      return sgMail
-        .send(msg)
-        .then((res) => {
-          console.log({res})
+      return  transporter.sendMail(msg)
+        .then((resp) => {
+          console.log({resp})
           return res({ Success: "Onboarding email sent" });
         })
         .catch(rej);

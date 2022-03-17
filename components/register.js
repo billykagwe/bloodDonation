@@ -196,8 +196,8 @@ export default function Register() {
               </div>
             </div>
 
-            {/* <div className='border-b section'>
-              <p className='text--200 text-lg  tracking-wide my-2 font-light mb-4'>
+            <div className='border-b section'>
+              <p className=' text-md text-white  tracking-wide my-2 font-light mb-4'>
                 If you are a doctor or in any medical related proffesion, would
                 you like to volunteer for your services to the community when
                 needed.
@@ -224,7 +224,7 @@ export default function Register() {
                   />
                 </div>
               </div>
-            </div> */}
+            </div>
 
             <div className='birthdate border-b section'>
               <p className='text-white text-lg  tracking-wide my-2 font-light mb-4'>
@@ -362,7 +362,7 @@ export default function Register() {
                 />
               </div>
             </div>
-{/* 
+
             <div className='section'>
               <p className='text-white text-lg  tracking-wide my-2 font-light mb-4'>
                 Do you have any of the following health equipments which can be
@@ -400,7 +400,7 @@ export default function Register() {
                   imageInput={imageInput}
                 />
               </div>
-            </div> */}
+            </div>
             <p className='mb-6 text-4xl italic underline  mt-10 text-gray-900 font-medium'>
               Disclaimer
             </p>
@@ -466,13 +466,13 @@ export default function Register() {
 const OxygenConcentrator = ({ imageInput, formData, formDataChange }) => {
   const [show, setShow] = useState();
   return (
-    <div className='equipments border rounded border-blue-400'>
+    <div className='equipments border rounded border-blue-900'>
       <div
         onClick={() => setShow(!show)}
         className='p-2 flex justify-between cursor-pointer '>
-        <span>Oxygen Concentrator</span>
+        <span className="bg-blue-700 p-2 rounded">Oxygen Concentrator</span>
         <input
-          className='h-4 w-4'
+          className='h-8 w-8'
           type='checkbox'
           onChange={() => setShow(!show)}
         />
@@ -532,13 +532,13 @@ const OxygenConcentrator = ({ imageInput, formData, formDataChange }) => {
 const Equipment = ({ label, imageInput, name }) => {
   const [show, setShow] = useState(false);
   return (
-    <div className='equipments border rounded border-blue-400'>
+    <div className='equipments border rounded border-blue-900'>
       <div
         onClick={() => setShow(!show)}
         className='p-2 flex justify-between cursor-pointer '>
-        <span>{label}</span>
+        <span className="bg-blue-700 p-2 rounded">{label}</span>
         <input
-          className='h-4 w-4'
+          className='h-8 w-8'
           type='checkbox'
           onChange={() => setShow(!show)}
         />

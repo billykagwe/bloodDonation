@@ -15,11 +15,8 @@ const handler = async (req, res) => {
     findUser(collection, email)
       .chain(comparePassword(password))
       .chain(signToken)
-      .chain(setAuthHeader(res))
-      .fork(
-        (x) => x,
-        (x) => x
-      );
+      // .chain(setAuthHeader(res))
+      .fork(res.json,setAuthHeader(res));
   }
 };
 
@@ -45,9 +42,10 @@ const comparePassword = (password) => (user) =>
   Task((rej, res) =>
     bcrypt
       .compare(password, user?.password)
-      .then((isMatch) =>
-        isMatch ? res(user) : rej({ error: "Invalid Credentials" })
-      )
+      .then((isMatch) =>{
+        console.log({isMatch})
+        return isMatch ? res(user) : rej({ error: "Invalid Credentials" })
+      })
       .catch((err) => rej({ error: err }))
   );
 
@@ -62,4 +60,6 @@ const signToken = (user) => {
 
 //////////////////////////////////////////////////////////////////////////////
 const findUser = (collection, email) =>
-  Task((rej, res) => collection.findOne({ email }).then(res).catch(rej));
+  Task((rej, res) => collection.findOne({ email }).then(user =>
+    user ? res(user) : rej({ error: "User not found" })
+  ).catch(rej));

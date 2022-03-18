@@ -1,0 +1,53 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style type="text/css">
+      @media screen {
+        @font-face {
+          font-family: "Lato";
+          font-style: normal;
+          font-weight: 400;
+          src: local("Lato Regular"), local("Lato-Regular"),
+            url(https://fonts.gstatic.com/s/lato/v11/qIIYRU-oROkIk8vfvxw6QvesZW2xOQ-xsNqO47m55DA.woff)
+              format("woff");
+        }
+        body {
+          font-family: "Lato", "Lucida Grande", "Lucida Sans Unicode", Tahoma,
+            Sans-Serif;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <strong>Dear ${firstName} ${lastName} </strong>
+    <p>
+      Thank you for voluntarily lending your forearm by filling the online blood
+      donor registration form. When there is an emergency, it takes a lot of
+      effort and time to make resources available to the needy. With this
+      initiative, you have contributed in reducing time and effort to find a
+      suitable match for the needy. This saving in time can help in getting
+      right treatment at the right time to the patient. This is just a start,
+      but your participation and suggestions can make this initiative a never
+      ending journey. For any suggestions that can improve this noble cause,
+      please email on blooddonors.toc@gmail.com. Please find your registration
+      details below, you can ammend details by replying to this email with the
+      details.
+    </p>
+    <p>Occupation: ${occupation}</p>
+    <strong>Blood Group: ${bloodGroup}</strong>
+    <p>Phone Number: ${phone}</p>
+    <p>Native Place: ${nativePlace}</p>
+    <p>County: ${county}</p>
+    <p>City: ${city}</p>
+    <p>Date of Birth: ${day}/${month}/${year}</p>
+    <br />
+    <p>Once again, thank you so much!</p>
+    <p>Team Oshwal Care</p>
+  </body>
+</html>

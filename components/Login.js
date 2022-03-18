@@ -38,7 +38,7 @@ function Login() {
               value={formData.email}
               type='email'
               placeholder='Email'
-              className='p-2 my-2 border rounded w-full'
+              className='p-2 my-2 border bg-white rounded w-full'
             />
             <input
               name='password'
@@ -46,7 +46,7 @@ function Login() {
               onChange={changeHandler}
               placeholder='Password'
               type='password'
-              className='p-2 my-2 border rounded w-full '
+              className='p-2 my-2 bg-white border rounded w-full '
             />
           </div>
           {state.context.error && (

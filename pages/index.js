@@ -6,11 +6,33 @@ import HomePage from "../components/HomePage";
 import Login from "../components/Login";
 import { useMachine } from "@xstate/react";
 import AuthMachine from "../machine/AuthMachine";
+import Head from "next/head";
 function Index() {
   const [state, send] = useMachine(AuthMachine);
 
   return (
     <div>
+      <Head>
+        <title>Team Oshwal Blood Donation</title>
+        <meta name='viewport' content='initial-scale=1.0, width=device-width' />
+        <meta charSet='utf-8' />
+        <meta httpEquiv='X-UA-Compatible' content='IE=edge' />
+        <meta
+          name='viewport'
+          content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no'
+        />
+        <meta name='description' content='Description' />
+        <meta name='keywords' content='Keywords' />
+        <link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin/>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet"/>
+        <link
+          sizes='60x60'
+          rel='shortcut icon'
+          href='/logo.png'
+          type='image/x-icon'
+        />
+      </Head>
       {state.matches("login") && <Login />}
 
       {state.matches("home") && (

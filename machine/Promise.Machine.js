@@ -1,6 +1,5 @@
 /** @format */
 
-import { after } from "xstate/lib/actions";
 
 const { createMachine, assign } = require("xstate");
 
@@ -13,14 +12,7 @@ const isValid = (data) => {
     bloodGroup,
     willingVolunteer,
   } = data;
-  console.log({
-    firstName,
-    lastName,
-    middleName,
-    occupation,
-    bloodGroup,
-    willingVolunteer,
-  });
+
   return [
     firstName,
     lastName,
@@ -63,7 +55,7 @@ export const PromiseMachine = (operation) =>
         invoke: {
           src: (context) => (callback) => {
             operation(context.data).then((res) => {
-              if (res.keyPattern)
+              if (res.error)
                 callback({ type: "ERROR", error: "User already exists" });
               else callback("SUCCESS");
             });
@@ -86,14 +78,7 @@ export const PromiseMachine = (operation) =>
         },
       },
       success: {
-        after: {
-          1000: {
-            target: "idle",
-            actions: assign({
-              data: null,
-            }),
-          },
-        },
+        type:"final"
       },
     },
   });

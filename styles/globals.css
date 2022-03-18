@@ -6,10 +6,9 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   background-color: white;
   color: black;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
 a {
@@ -19,21 +18,6 @@ a {
 
 * {
   box-sizing: border-box;
-}
-
-.container-wrapper {
-  max-width: 600px;
-  margin: auto;
-  padding: 0 1rem;
-  border-radius: 3px;
-  color: white;
-  margin-bottom: 6rem;
-}
-
-h2 {
-  font-size: 2rem;
-  text-align: center;
-  color: #0f72be;
 }
 
 .names {
@@ -60,17 +44,6 @@ h2 {
   border-bottom: 1px solid #d1d5db;
   margin-bottom: 1rem;
   padding-bottom: 10px;
-}
-
-.register p {
-  font-size: 19px;
-  color: white;
-  line-height: 28px;
-  letter-spacing: 1px;
-  max-width: 600px;
-  font-weight: 300;
-  padding: 5px;
-  align-items: center;
 }
 
 .birthdate-input {
@@ -106,30 +79,9 @@ span {
   margin-bottom: 5px;
 }
 
-.submit {
-  display: block;
-  color: white;
-  border-radius: 3px;
-  cursor: pointer;
-  border: none;
-  padding: 5px;
-  font-size: 1.5rem;
-  margin: auto;
-  width: 100%;
-  font-weight: bold;
-  background: #fb901f;
-}
-
-label {
-  font-size: 14px;
-  color: white;
-  font-weight: 500;
-  margin-left: 10px;
-}
-
 .equipments {
-  border: 1px solid #e5e7eb;
   padding: 4px;
+  border-radius: 5px;
 }
 
 .equipments span {
@@ -143,30 +95,21 @@ label {
 }
 
 .equipments input {
-  width: 16rem;
+  color: white;
+  border: none;
 }
 
 .section {
   margin: auto;
-  background: #0f72be;
+  background: #60a5fa;
   padding: 1rem;
   margin-bottom: 1rem;
+  border-radius: 5px;
 }
 
 .section-label {
   display: flex;
   justify-content: center;
-}
-
-input {
-  display: block;
-  max-width: 600px;
-  margin: 1rem 0;
-  padding: 10px;
-  border-radius: 3px;
-  border: 1px solid gray;
-  margin-bottom: 5px;
-  color: black;
 }
 
 .checkbox {

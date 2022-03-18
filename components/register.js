@@ -10,7 +10,7 @@ import Head from "next/head";
 export default function Register() {
   const [formData, setFormData] = useState({ phone: "+254" });
   const [equipmentImages, setEquipmentImages] = useState({});
-
+console.log({formData})
   const formDataChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -22,7 +22,7 @@ export default function Register() {
     setEquipmentImages({ ...equipmentImages, [name]: file });
   };
 
-  const [state, send] = useMachine(PromiseMachine(operation));
+  const [state, send] = useMachine(PromiseMachine(postForm));
   const [agreed, setAgreed] = useState(false);
   return (
     <>
@@ -272,6 +272,12 @@ export default function Register() {
                 <label className='text-xs text-white'>
                   Contact Phone Number
                 </label>
+                <div className="flex space-x-2 ">
+                <select onChange={formDataChange} name='contactCode' className="p-3 rounded">
+                  {codes?.map(code => (
+                    <option value={code}>{code}</option>
+                  ))}
+                </select>
                 <input
                   className='p-2 rounded w-full text-blue-800 font-medium'
                   onChange={formDataChange}
@@ -279,11 +285,19 @@ export default function Register() {
                   type='number'
                   value={formData.contactPhone}
                 />
+                </div>
+
               </div>
               <div className='mt-1'>
                 <label className='text-xs text-white'>
                   Whatsapp Phone Number
                 </label>
+                <div className="flex space-x-2 ">
+                <select onChange={formDataChange} name="whatsAppCode" className="p-3 rounded">
+                  {codes?.map(code => (
+                    <option value={code}>{code}</option>
+                  ))}
+                </select>
                 <input
                   className='p-2 rounded w-full text-blue-800 font-medium'
                   onChange={formDataChange}
@@ -291,6 +305,7 @@ export default function Register() {
                   type='number'
                   value={formData.whatsappPhone}
                 />
+                </div>
               </div>
             </div>
             <div className='section'>
@@ -626,26 +641,38 @@ const uploadCloudinaryImages = (equipmentImages) =>
     Promise.all(uploadImages(equipmentImages)).then(res).catch(rej)
   );
 
-const postForm = (formData, images) =>
-  fetch("/api/register", {
+const postForm = (formData) =>{
+  console.log({formData})
+  const data = parseFormData(formData)
+  return fetch("/api/register", {
     method: "POST",
-    body: JSON.stringify({ ...formData, images }),
-  }).then((res) => res.json());
+    body: JSON.stringify({ ...data }),
+    })}
 
-const submitFormData = (formData) => (images) =>
-  Task((rej, res) => postForm(formData, images).then(res).catch(rej));
 
+const parseFormData = ({formData}) => {
+  console.log({formData})
+  const {contactCode,contactPhone,whatsappPhone,whatsAppCode,...otherFormData} = formData
+  let parsedData = otherFormData
+console.log({contactCode,whatsAppCode,otherFormData})
+  if(contactCode && contactPhone){
+    parsedData = {...parsedData,contactPhone: `${contactCode.split('\t')[0]} ${contactPhone}`}
+  }
+
+  if(whatsAppCode && whatsappPhone){
+    parsedData = {...parsedData,whatsappPhone: `${whatsAppCode.split('\t')[0]} ${whatsappPhone}`}
+  }
+
+  return parsedData
+}
+
+const submitFormData = (formData) => {
+  console.log({f:formData})
+  return Task((rej, res) => postForm(formData).then(res).catch(rej));
+}
 const parseImages = (images) =>
   images?.map(({ url, tags }) => ({ url, tag: tags[0] }));
-
-const operation = ({ equipmentImages, formData }) =>
-  uploadCloudinaryImages(equipmentImages)
-    .map(parseImages)
-    .chain(submitFormData(formData))
-    .fork(
-      (x) => x,
-      (x) => x
-    );
+   
 
 const codes = [
   "+1	🇨🇦	CA",

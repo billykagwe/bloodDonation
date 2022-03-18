@@ -11,6 +11,7 @@ export default async function handler(req, res) {
     const { db } = await connectToDatabase();
     const donors = db.collection("Donors");
     const body = JSON.parse(req.body);
+    
     return insertData(donors, body)
       .chain(sendOnboardingEmail(body))
       .fork(res.json, res.json);

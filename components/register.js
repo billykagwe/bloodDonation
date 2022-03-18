@@ -567,15 +567,15 @@ const DonationRequirements = () => {
   return (
     <div className='text-blue-900 bg-blue-50 p-2 font-normal '>
       <p className=' text-md font-bold mt-2 text-blue-800 '>
-        You can only donate blood if:
+        You can only donate blood if you:
       </p>
       <ol className='list-disc p-2 px-4 text-blue-800 text-sm flex space-y-2 flex-col'>
-        <li>Fit and healthy</li>
-        <li>Between age 18 and 55 years</li>
-        <li>Weight is more than 50 kgs</li>
-        <li>Its been more than 6 months since you got a tatoo</li>
-        <li>Taking anti-depressants at the normal prescribed doses</li>
-        <li>Taking blood medications and blood pressure is stable</li>
+        <li>Are fit and healthy</li>
+        <li>Are between age 18 and 55 years</li>
+        <li>Weigh more than 50 kgs</li>
+        <li>Have tatoo which is minimum of 6 months and older</li>
+        <li>Are taking anti-depressants</li>
+        <li>Have stable blood pressure</li>
       </ol>
     </div>
   );

@@ -275,7 +275,7 @@ console.log({formData})
                 <div className="flex space-x-2 ">
                 <select onChange={formDataChange} name='contactCode' className="p-3 rounded">
                   {codes?.map(code => (
-                    <option value={code}>{code}</option>
+                    <option key={code} value={code}>{code}</option>
                   ))}
                 </select>
                 <input
@@ -295,7 +295,7 @@ console.log({formData})
                 <div className="flex space-x-2 ">
                 <select onChange={formDataChange} name="whatsAppCode" className="p-3 rounded">
                   {codes?.map(code => (
-                    <option value={code}>{code}</option>
+                    <option key={code} value={code}>{code}</option>
                   ))}
                 </select>
                 <input

@@ -23,7 +23,7 @@ export default function Register() {
   };
 
   const [state, send] = useMachine(PromiseMachine(operation));
-  const [agreed,setAgreed] = useState(false)
+  const [agreed, setAgreed] = useState(false);
   return (
     <>
       <Head>
@@ -132,6 +132,7 @@ export default function Register() {
                       Thank you for filling out the registration form.
                     </span>
                     <span>Please check your email inbox.</span>
+                    <span>Please also check your junk email box.</span>
                   </div>
                 </div>
               </div>
@@ -142,13 +143,13 @@ export default function Register() {
           <div className='max-w-xl w-full mx-auto  '>
             <div className=' my-4 border-t  '>
               <p className='text-gray-900 text-3xl mt-4 mb-4'>
-                Dear Well wisher
+                Dear Well Wisher
               </p>
 
               <p className=' text-gray-600 font-normal  text-md  leading-7       '>
-                Please fill the following form that asks for your personal and
-                health related information. Please note this data will only be
-                used creating a database for blood donors in our community.
+                Please fill the following form for creating a data bank for
+                blood donors. Please note that this data will only be used for
+                the above purpose intended.
               </p>
             </div>
             <DonationRequirements />
@@ -294,9 +295,7 @@ export default function Register() {
             </div>
             <div className='section'>
               <div className='mt-1 '>
-                <label className='text-xs text-white'>
-                  Select Blood Group
-                </label>
+                <label className='text-xs text-white'>Select Blood Group</label>
                 <select
                   onChange={formDataChange}
                   name='bloodGroup'
@@ -315,8 +314,8 @@ export default function Register() {
             <div className='section'>
               <p className='text-white text-md font-medium  my-2  mb-8'>
                 Will you volunteer for blood donation when there is a
-                requirement for your blood group. A Team Oshwal Care Member will
-                call/message you and check your availablity.
+                requirement for your blood group. A Member from Team Oshwal Care
+                will contact you for the same.
               </p>
               <div className='docter-checkbox border-b'>
                 <div>
@@ -362,7 +361,7 @@ export default function Register() {
                 />
               </div>
             </div>
-{/* 
+            {/* 
             <div className='section'>
               <p className='text-white text-lg  tracking-wide my-2 font-light mb-4'>
                 Do you have any of the following health equipments which can be
@@ -408,10 +407,9 @@ export default function Register() {
             <div className='text-gray-600 text-normal leading-8  font-normal  flex space-y-4 flex-col '>
               <div className='flex space-x-3'>
                 <p>
-                  <span className='text-3xl'>T</span>he information produced by
-                  the user of the form will be used in the same format by Team
-                  Oshwal Care for the purpose of helping the needy as per their
-                  requirements.
+                  <span className='text-3xl'>T</span>he information given by you
+                  will be used in the same format by team Oshwal Care for the
+                  purpose of helping the needy as per their requirements.
                 </p>
               </div>
               <p>
@@ -420,15 +418,12 @@ export default function Register() {
                 is to help each other during need.
               </p>
               <p>
-                <span className='text-3xl'>I</span>nformation of the blood group
-                of the donor in this form does not qualify a donor to donate
-                blood to the needy patient. The donor must produce all his
-                information to the doctor and seek further guidance on
-                eligibility to donate at every instance of blood donation
+                <span className='text-3xl'>Y</span>our information in this form
+                does not qualify for you to donate blood to the needy patient.
               </p>
               <p>
                 <span className='text-3xl'>I</span>t is the responsibility of
-                the donor and the party seeking help from the donor to verify
+                the donor and the person seeking help from the donor to verify
                 each other’s information before engaging in any transaction.
                 Team Oshwal Care will just share the information as provided by
                 the user of this platform. Team Oshwal Care is not liable for
@@ -437,7 +432,12 @@ export default function Register() {
             </div>
 
             <div className='mt-8 flex items-center space-x-4 '>
-              <input checked={agreed} onChange={() => setAgreed(!agreed)} className="h-8 w-8" type="checkbox" />
+              <input
+                checked={agreed}
+                onChange={() => setAgreed(!agreed)}
+                className='h-8 w-8'
+                type='checkbox'
+              />
               <p className=' text-gray-900 inline-block    '>
                 The information provided by me is correct and I have read all
                 the points mentioned in the disclaimer
@@ -445,13 +445,15 @@ export default function Register() {
             </div>
 
             {state.context.error && (
-              <p style={{  color: "red" }}>{state.context.error}</p>
+              <p style={{ color: "red" }}>{state.context.error}</p>
             )}
             <button
               onClick={() =>
                 send({ type: "SUBMIT", data: { formData, equipmentImages } })
               }
-              className={`submit mt-8 block rounded p-2 w-full text-center ${agreed ? 'bg-blue-600' : 'bg-gray-200' } text-white `}>
+              className={`submit mt-8 block rounded p-2 w-full text-center ${
+                agreed ? "bg-blue-600" : "bg-gray-200"
+              } text-white `}>
               Submit
             </button>
           </div>
@@ -568,7 +570,7 @@ const DonationRequirements = () => {
         You can only donate blood if:
       </p>
       <ol className='list-disc p-2 px-4 text-blue-800 text-sm flex space-y-2 flex-col'>
-        <li>Fit and helthy</li>
+        <li>Fit and healthy</li>
         <li>Between age 18 and 55 years</li>
         <li>Weight is more than 50 kgs</li>
         <li>Its been more than 6 months since you got a tatoo</li>
@@ -644,3 +646,252 @@ const operation = ({ equipmentImages, formData }) =>
       (x) => x,
       (x) => x
     );
+
+const codes = [
+  "+1	🇨🇦	CA",
+  "+1	🇺🇸	US",
+  "+1242	🇧🇸	BS",
+  "+1246	🇧🇧	BB",
+  "+1264	🇦🇮	AI",
+  "+1268	🇦🇬	AG",
+  "+1284	🇻🇬	VG",
+  "+1340	🇻🇮	VI",
+  "+1441	🇧🇲	BM",
+  "+1473	🇬🇩	GD",
+  "+1649	🇹🇨	TC",
+  "+1664	🇲🇸	MS",
+  "+1670	🇲🇵	MP",
+  "+1671	🇬🇺	GU",
+  "+1684	🇦🇸	AS",
+  "+1758	🇱🇨	LC",
+  "+1767	🇩🇲	DM",
+  "+1784	🇻🇨	VC",
+  "+1849	🇩🇴	DO",
+  "+1868	🇹🇹	TT",
+  "+1869	🇰🇳	KN",
+  "+1876	🇯🇲	JM",
+  "+1939	🇵🇷	PR",
+  "+20	🇪🇬	EG",
+  "+211	🇸🇸	SS",
+  "+212	🇲🇦	MA",
+  "+213	🇩🇿	DZ",
+  "+216	🇹🇳	TN",
+  "+218	🇱🇾	LY",
+  "+220	🇬🇲	GM",
+  "+221	🇸🇳	SN",
+  "+222	🇲🇷	MR",
+  "+223	🇲🇱	ML",
+  "+224	🇬🇳	GN",
+  "+225	🇨🇮	CI",
+  "+226	🇧🇫	BF",
+  "+227	🇳🇪	NE",
+  "+228	🇹🇬	TG",
+  "+229	🇧🇯	BJ",
+  "+230	🇲🇺	MU",
+  "+231	🇱🇷	LR",
+  "+232	🇸🇱	SL",
+  "+233	🇬🇭	GH",
+  "+234	🇳🇬	NG",
+  "+235	🇹🇩	TD",
+  "+236	🇨🇫	CF",
+  "+237	🇨🇲	CM",
+  "+238	🇨🇻	CV",
+  "+239	🇸🇹	ST",
+  "+240	🇬🇶	GQ",
+  "+241	🇬🇦	GA",
+  "+242	🇨🇬	CG",
+  "+243	🇨🇩	CD",
+  "+244	🇦🇴	AO",
+  "+245	🇬🇼	GW",
+  "+246	🇮🇴	IO",
+  "+248	🇸🇨	SC",
+  "+249	🇸🇩	SD",
+  "+250	🇷🇼	RW",
+  "+251	🇪🇹	ET",
+  "+252	🇸🇴	SO",
+  "+253	🇩🇯	DJ",
+  "+254	🇰🇪	KE",
+  "+255	🇹🇿	TZ",
+  "+256	🇺🇬	UG",
+  "+257	🇧🇮	BI",
+  "+258	🇲🇿	MZ",
+  "+260	🇿🇲	ZM",
+  "+261	🇲🇬	MG",
+  "+262	🇹🇫	TF",
+  "+262	🇾🇹	YT",
+  "+262	🇷🇪	RE",
+  "+263	🇿🇼	ZW",
+  "+264	🇳🇦	NA",
+  "+265	🇲🇼	MW",
+  "+266	🇱🇸	LS",
+  "+267	🇧🇼	BW",
+  "+268	🇸🇿	SZ",
+  "+269	🇰🇲	KM",
+  "+27	🇿🇦	ZA",
+  "+290	🇸🇭	SH",
+  "+291	🇪🇷	ER",
+  "+297	🇦🇼	AW",
+  "+298	🇫🇴	FO",
+  "+299	🇬🇱	GL",
+  "+30	🇬🇷	GR",
+  "+31	🇳🇱	NL",
+  "+32	🇧🇪	BE",
+  "+33	🇫🇷	FR",
+  "+34	🇪🇸	ES",
+  "+345	🇰🇾	KY",
+  "+350	🇬🇮	GI",
+  "+351	🇵🇹	PT",
+  "+352	🇱🇺	LU",
+  "+353	🇮🇪	IE",
+  "+354	🇮🇸	IS",
+  "+355	🇦🇱	AL",
+  "+356	🇲🇹	MT",
+  "+357	🇨🇾	CY",
+  "+358	🇦🇽	AX",
+  "+358	🇫🇮	FI",
+  "+359	🇧🇬	BG",
+  "+36	🇭🇺	HU",
+  "+370	🇱🇹	LT",
+  "+371	🇱🇻	LV",
+  "+372	🇪🇪	EE",
+  "+373	🇲🇩	MD",
+  "+374	🇦🇲	AM",
+  "+375	🇧🇾	BY",
+  "+376	🇦🇩	AD",
+  "+377	🇲🇨	MC",
+  "+378	🇸🇲	SM",
+  "+379	🇻🇦	VA",
+  "+380	🇺🇦	UA",
+  "+381	🇷🇸	RS",
+  "+382	🇲🇪	ME",
+  "+383	🇽🇰	XK",
+  "+385	🇭🇷	HR",
+  "+386	🇸🇮	SI",
+  "+387	🇧🇦	BA",
+  "+389	🇲🇰	MK",
+  "+39	🇮🇹	IT",
+  "+40	🇷🇴	RO",
+  "+41	🇨🇭	CH",
+  "+420	🇨🇿	CZ",
+  "+421	🇸🇰	SK",
+  "+423	🇱🇮	LI",
+  "+43	🇦🇹	AT",
+  "+44	🇬🇬	GG",
+  "+44	🇮🇲	IM",
+  "+44	🇯🇪	JE",
+  "+44	🇬🇧	GB",
+  "+45	🇩🇰	DK",
+  "+46	🇸🇪	SE",
+  "+47	🇧🇻	BV",
+  "+47	🇳🇴	NO",
+  "+47	🇸🇯	SJ",
+  "+48	🇵🇱	PL",
+  "+49	🇩🇪	DE",
+  "+500	🇫🇰	FK",
+  "+500	🇬🇸	GS",
+  "+501	🇧🇿	BZ",
+  "+502	🇬🇹	GT",
+  "+503	🇸🇻	SV",
+  "+504	🇭🇳	HN",
+  "+505	🇳🇮	NI",
+  "+506	🇨🇷	CR",
+  "+507	🇵🇦	PA",
+  "+508	🇵🇲	PM",
+  "+509	🇭🇹	HT",
+  "+51	🇵🇪	PE",
+  "+52	🇲🇽	MX",
+  "+53	🇨🇺	CU",
+  "+54	🇦🇷	AR",
+  "+55	🇧🇷	BR",
+  "+56	🇨🇱	CL",
+  "+57	🇨🇴	CO",
+  "+58	🇻🇪	VE",
+  "+590	🇬🇵	GP",
+  "+590	🇧🇱	BL",
+  "+590	🇲🇫	MF",
+  "+591	🇧🇴	BO",
+  "+592	🇬🇾	GY",
+  "+593	🇪🇨	EC",
+  "+594	🇬🇫	GF",
+  "+595	🇵🇾	PY",
+  "+596	🇲🇶	MQ",
+  "+597	🇸🇷	SR",
+  "+598	🇺🇾	UY",
+  "+599		AN",
+  "+60	🇲🇾	MY",
+  "+61	🇦🇺	AU",
+  "+61	🇨🇽	CX",
+  "+61	🇨🇨	CC",
+  "+62	🇮🇩	ID",
+  "+63	🇵🇭	PH",
+  "+64	🇳🇿	NZ",
+  "+64	🇵🇳	PN",
+  "+65	🇸🇬	SG",
+  "+66	🇹🇭	TH",
+  "+670	🇹🇱	TL",
+  "+672	🇦🇶	AQ",
+  "+672	🇭🇲	HM",
+  "+672	🇳🇫	NF",
+  "+673	🇧🇳	BN",
+  "+674	🇳🇷	NR",
+  "+675	🇵🇬	PG",
+  "+676	🇹🇴	TO",
+  "+677	🇸🇧	SB",
+  "+678	🇻🇺	VU",
+  "+679	🇫🇯	FJ",
+  "+680	🇵🇼	PW",
+  "+681	🇼🇫	WF",
+  "+682	🇨🇰	CK",
+  "+683	🇳🇺	NU",
+  "+685	🇼🇸	WS",
+  "+686	🇰🇮	KI",
+  "+687	🇳🇨	NC",
+  "+688	🇹🇻	TV",
+  "+689	🇵🇫	PF",
+  "+690	🇹🇰	TK",
+  "+691	🇫🇲	FM",
+  "+692	🇲🇭	MH",
+  "+7	🇰🇿	KZ",
+  "+7	🇷🇺	RU",
+  "+81	🇯🇵	JP",
+  "+82	🇰🇷	KR",
+  "+84	🇻🇳	VN",
+  "+850	🇰🇵	KP",
+  "+852	🇭🇰	HK",
+  "+853	🇲🇴	MO",
+  "+855	🇰🇭	KH",
+  "+856	🇱🇦	LA",
+  "+86	🇨🇳	CN",
+  "+880	🇧🇩	BD",
+  "+886	🇹🇼	TW",
+  "+90	🇹🇷	TR",
+  "+91	🇮🇳	IN",
+  "+92	🇵🇰	PK",
+  "+93	🇦🇫	AF",
+  "+94	🇱🇰	LK",
+  "+95	🇲🇲	MM",
+  "+960	🇲🇻	MV",
+  "+961	🇱🇧	LB",
+  "+962	🇯🇴	JO",
+  "+963	🇸🇾	SY",
+  "+964	🇮🇶	IQ",
+  "+965	🇰🇼	KW",
+  "+966	🇸🇦	SA",
+  "+967	🇾🇪	YE",
+  "+968	🇴🇲	OM",
+  "+970	🇵🇸	PS",
+  "+971	🇦🇪	AE",
+  "+972	🇮🇱	IL",
+  "+973	🇧🇭	BH",
+  "+974	🇶🇦	QA",
+  "+975	🇧🇹	BT",
+  "+976	🇲🇳	MN",
+  "+977	🇳🇵	NP",
+  "+98	🇮🇷	IR",
+  "+992	🇹🇯	TJ",
+  "+993	🇹🇲	TM",
+  "+994	🇦🇿	AZ",
+  "+995	🇬🇪	GE",
+  "+996	🇰🇬	KG",
+  "+ 998	🇺🇿	UZ",
+];

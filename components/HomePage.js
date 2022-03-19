@@ -87,8 +87,8 @@ const Donor = ({ donor }) => {
               </div>
             </div> */}
             <div className=' rounded sm:max-w-xs w-full mb-2'>
-              <div className='flex max-w-xs w-full p-2 space-y-1  text-gray-700  capitalize flex-col'>
-                <div className='flex items-center space-x-2'>
+              <div className='flex w-full p-2 space-y-1  text-blue-500  capitalize flex-col'>
+                <div className='flex items-center space-x-2 '>
                   <svg
                     xmlns='http://www.w3.org/2000/svg'
                     className='h-4 w-4'
@@ -103,6 +103,7 @@ const Donor = ({ donor }) => {
                     />
                   </svg>
                   <p>{donor?.contactPhone}</p>
+                  <p>Whatsapp: {donor?.contactPhone}</p>
                 </div>
                 <div className='flex items-center space-x-2'>
                   <svg

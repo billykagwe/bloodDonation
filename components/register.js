@@ -8,7 +8,7 @@ import Image from "next/image";
 import Head from "next/head";
 
 export default function Register() {
-  const [formData, setFormData] = useState({ phone: "+254" });
+  const [formData, setFormData] = useState({ phone: "+254",contactCode:"+254	🇰🇪	KE",whatsAppCode:"+254	🇰🇪	KE" });
   const [equipmentImages, setEquipmentImages] = useState({});
 console.log({formData})
   const formDataChange = (e) => {
@@ -105,7 +105,7 @@ console.log({formData})
         )}
         {/* some comments */}
         {state.matches("success") && (
-          <div className='inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full'>
+          <div className='flex justify-center items-center mx-auto align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full'>
             <div className='bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4'>
               <div className='sm:flex sm:items-start'>
                 <div className='mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-green-100 sm:mx-0 sm:h-10 sm:w-10'>
@@ -127,12 +127,15 @@ console.log({formData})
                     id='modal-title'>
                     Registration Completed Successfully
                   </h3>
-                  <div className='mt-2 text-sm bg-white text-gray-500'>
+                  <div className='mt-2 text-sm bg-white text-green-900'>
                     <span className=' block'>
                       Thank you for filling out the registration form.
                     </span>
-                    <span>Please check your email inbox.</span>
-                    <span>Please also check your junk email box.</span>
+                    <p>Please check your email inbox.</p>
+                    <p>Incase, you dont find it in the inbox, please check your junk email box.</p>
+                    <p>For any assistance or ammendments, please email to 
+                      <span className="text-blue-600">compassion@teamoshwalcare.com</span>
+                    </p>
                   </div>
                 </div>
               </div>
@@ -434,7 +437,8 @@ console.log({formData})
               </p>
               <p>
                 <span className='text-3xl'>Y</span>our information in this form
-                does not qualify for you to donate blood to the needy patient.
+                does not qualify for you to donate blood to the needy patient. The donor must produce all his information to the 
+                doctor and seek further guidance on eligibility to donate at every instance of blood donation.
               </p>
               <p>
                 <span className='text-3xl'>I</span>t is the responsibility of
@@ -582,14 +586,13 @@ const DonationRequirements = () => {
   return (
     <div className='text-blue-900 bg-blue-50 p-2 font-normal '>
       <p className=' text-md font-bold mt-2 text-blue-800 '>
-        You can only donate blood if you:
+        Blood can only be donated if you:
       </p>
       <ol className='list-disc p-2 px-4 text-blue-800 text-sm flex space-y-2 flex-col'>
         <li>Are fit and healthy</li>
         <li>Are between age 18 and 55 years</li>
         <li>Weigh more than 50 kgs</li>
         <li>Have tatoo which is minimum of 6 months and older</li>
-        <li>Are taking anti-depressants</li>
         <li>Have stable blood pressure</li>
       </ol>
     </div>
@@ -654,7 +657,6 @@ const parseFormData = ({formData}) => {
   console.log({formData})
   const {contactCode,contactPhone,whatsappPhone,whatsAppCode,...otherFormData} = formData
   let parsedData = otherFormData
-console.log({contactCode,whatsAppCode,otherFormData})
   if(contactCode && contactPhone){
     parsedData = {...parsedData,contactPhone: `${contactCode.split('\t')[0]} ${contactPhone}`}
   }
@@ -675,6 +677,7 @@ const parseImages = (images) =>
    
 
 const codes = [
+  "+254	🇰🇪	KE",
   "+1	🇨🇦	CA",
   "+1	🇺🇸	US",
   "+1242	🇧🇸	BS",
@@ -737,7 +740,6 @@ const codes = [
   "+251	🇪🇹	ET",
   "+252	🇸🇴	SO",
   "+253	🇩🇯	DJ",
-  "+254	🇰🇪	KE",
   "+255	🇹🇿	TZ",
   "+256	🇺🇬	UG",
   "+257	🇧🇮	BI",

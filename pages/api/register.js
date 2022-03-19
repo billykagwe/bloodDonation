@@ -43,6 +43,7 @@ const sendOnboardingEmail = (body) => {
     city,
     county,
     contactPhone,
+    whatsappPhone
   } = body;
   return () =>
     Task((rej, res) => {
@@ -59,7 +60,7 @@ const sendOnboardingEmail = (body) => {
       const msg = {
         to: email, // Change to your recipient
         from: "compassion@teamoshwalcare.com", // Change to your verified sender
-        subject: "Blood Donation Registration",
+        subject: "Blood Donor Registration",
         html: `
                 <!DOCTYPE html>
       <html lang="en">
@@ -147,6 +148,16 @@ const sendOnboardingEmail = (body) => {
             >
               Phone Number: ${contactPhone}
             </p>
+            <p
+            style="
+              max-width: 700px;
+              font-size: 14px;
+              /* line-height: 25px; */
+              align-text: center;
+            "
+          >
+            Whatsapp Number: ${whatsappPhone}
+          </p>
             <p
               style="
                 max-width: 700px;

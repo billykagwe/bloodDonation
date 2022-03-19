@@ -56,8 +56,9 @@ export const PromiseMachine = (operation) =>
         invoke: {
           src: (context) => (callback) => {
             console.log({context})
-            operation(context.data).then((res) => {
-              if (res.error)
+            operation(context.data).then(res => res.json()).then((data) => {
+              console.log({data})
+              if (data.error)
                 callback({ type: "ERROR", error: "User already exists" });
               else callback("SUCCESS");
             });

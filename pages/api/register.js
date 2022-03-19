@@ -23,9 +23,9 @@ const insertData = (donors, data) =>
     donors
       .insertOne(data)
       .then((x) => {
-        return x?.insertedId ? res(x) : rej({ error: "Could not save data" });
+        return x?.insertedId ? res(x) : rej({ error: "Could not save data",status:400 });
       })
-      .catch((x) => rej({ error: x }))
+      .catch((x) => rej({ error: x,status:500 }))
   );
 
 //////////////////////////////////////////////////////////////////////////
@@ -199,9 +199,9 @@ const sendOnboardingEmail = (body) => {
               align-text: center;
             "
           >
-            The information produced by the user of the form will be used in the same
-            format by Team Oshwal Care for the purpose of helping the needy as per
-            their requirements.
+            The information given by you
+            will be used in the same format by team Oshwal Care for the
+            purpose of helping the needy as per their requirements.
           </p>
           <p
             style="
@@ -211,8 +211,9 @@ const sendOnboardingEmail = (body) => {
               align-text: center;
             "
           >
-            This information will not be used for any commercial benefit. The purpose
-            of this initiative is to help each other during need.
+            This information will not be
+            used for any commercial benefit. The purpose of this initiative
+            is to help each other during need.
           </p>
           <p
             style="
@@ -222,10 +223,9 @@ const sendOnboardingEmail = (body) => {
               align-text: center;
             "
           >
-            Information of the blood group of the donor in this form does not qualify
-            a donor to donate blood to the needy patient. The donor must produce all
-            his information to the doctor and seek further guidance on eligibility to
-            donate at every instance of blood donation
+          Your information in this form
+          does not qualify for you to donate blood to the needy patient. The donor must produce all his information to the 
+          doctor and seek further guidance on eligibility to donate at every instance of blood donation.
           </p>
           <p
             style="
@@ -235,11 +235,12 @@ const sendOnboardingEmail = (body) => {
               align-text: center;
             "
           >
-            It is the responsibility of the donor and the party seeking help from the
-            donor to verify each other’s information before engaging in any
-            transaction. Team Oshwal Care will just share the information as provided
-            by the user of this platform. Team Oshwal Care is not liable for any false
-            or incorrect information.
+            It is the responsibility of
+            the donor and the person seeking help from the donor to verify
+            each other’s information before engaging in any transaction.
+            Team Oshwal Care will just share the information as provided by
+            the user of this platform. Team Oshwal Care is not liable for
+            any false or incorrect information.
           </p>
           <div></div>
 

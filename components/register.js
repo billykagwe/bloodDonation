@@ -134,7 +134,7 @@ console.log({formData})
                     <p>Please check your email inbox.</p>
                     <p>Incase, you dont find it in the inbox, please check your junk email box.</p>
                     <p>For any assistance or ammendments, please email to 
-                      <span className="text-blue-600">compassion@teamoshwalcare.com</span>
+                      <span className="text-blue-600"> compassion@teamoshwalcare.com</span>
                     </p>
                   </div>
                 </div>

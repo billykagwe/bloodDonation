@@ -31,8 +31,8 @@ function HomePage() {
 
       {!data && isValidating && <p className='text-center'>loading...</p>}
       <div className="flex space-x-2 mt-2 mb-8 items-center justify-center">
-      {Object.keys(groupData).map(key => (
-        <p className="flex items-center"><span className="text-yellow-600 font-bold text-2xl ">{key}</span>:<span className="text-gray-800 text-2xl ml-2" >{groupData[key]}</span></p>
+      {Object?.keys(groupData || [])?.map(key => (
+        <p key={key} className="flex items-center"><span className="text-yellow-600 font-bold text-2xl ">{key}</span>:<span className="text-gray-800 text-2xl ml-2" >{groupData[key]}</span></p>
       ))}
       </div>
       

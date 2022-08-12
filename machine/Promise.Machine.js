@@ -35,6 +35,7 @@ export const PromiseMachine = (operation) =>
             {
               target: "loading",
               cond: (context, event) => {
+                console.log({event})
                 return isValid(event.data.formData);
               },
               actions: assign({
@@ -54,8 +55,10 @@ export const PromiseMachine = (operation) =>
       loading: {
         invoke: {
           src: (context) => (callback) => {
-            operation(context.data).then((res) => {
-              if (res.error)
+            console.log({context})
+            operation(context.data).then(res => res.json()).then((data) => {
+              console.log({data})
+              if (data.error)
                 callback({ type: "ERROR", error: "User already exists" });
               else callback("SUCCESS");
             });

@@ -8,9 +8,9 @@ import Image from "next/image";
 import Head from "next/head";
 
 export default function Register() {
-  const [formData, setFormData] = useState({ phone: "+254" });
+  const [formData, setFormData] = useState({ phone: "+254",contactCode:"+254	🇰🇪	KE",whatsAppCode:"+254	🇰🇪	KE" });
   const [equipmentImages, setEquipmentImages] = useState({});
-
+console.log({formData})
   const formDataChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -22,7 +22,7 @@ export default function Register() {
     setEquipmentImages({ ...equipmentImages, [name]: file });
   };
 
-  const [state, send] = useMachine(PromiseMachine(operation));
+  const [state, send] = useMachine(PromiseMachine(postForm));
   const [agreed, setAgreed] = useState(false);
   return (
     <>
@@ -103,6 +103,7 @@ export default function Register() {
                 </button>
               </div>
             </div>
+<<<<<<< HEAD
           )}
           {/* some comments */}
           {state.matches("success") && (
@@ -135,6 +136,43 @@ export default function Register() {
                       <span>Please check your email inbox.</span>
                       <span>Please also check your junk email box.</span>
                     </div>
+=======
+          </div>
+        )}
+        {/* some comments */}
+        {state.matches("success") && (
+          <div className='flex justify-center items-center mx-auto align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full'>
+            <div className='bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4'>
+              <div className='sm:flex sm:items-start'>
+                <div className='mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-green-100 sm:mx-0 sm:h-10 sm:w-10'>
+                  <svg
+                    xmlns='http://www.w3.org/2000/svg'
+                    className='h-5 w-5'
+                    viewBox='0 0 20 20'
+                    fill='currentColor'>
+                    <path
+                      fillRule='evenodd'
+                      d='M5 2a1 1 0 011 1v1h1a1 1 0 010 2H6v1a1 1 0 01-2 0V6H3a1 1 0 010-2h1V3a1 1 0 011-1zm0 10a1 1 0 011 1v1h1a1 1 0 110 2H6v1a1 1 0 11-2 0v-1H3a1 1 0 110-2h1v-1a1 1 0 011-1zM12 2a1 1 0 01.967.744L14.146 7.2 17.5 9.134a1 1 0 010 1.732l-3.354 1.935-1.18 4.455a1 1 0 01-1.933 0L9.854 12.8 6.5 10.866a1 1 0 010-1.732l3.354-1.935 1.18-4.455A1 1 0 0112 2z'
+                      clipRule='evenodd'
+                    />
+                  </svg>
+                </div>
+                <div className='mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left'>
+                  <h3
+                    className='text-lg text-green-600 leading-6 font-medium '
+                    id='modal-title'>
+                    Registration Completed Successfully
+                  </h3>
+                  <div className='mt-2 text-sm bg-white text-green-900'>
+                    <span className=' block'>
+                      Thank you for filling out the registration form.
+                    </span>
+                    <p>Please check your email inbox.</p>
+                    <p>Incase, you dont find it in the inbox, please check your junk email box.</p>
+                    <p>For any assistance or ammendments, please email to 
+                      <span className="text-blue-600"> compassion@teamoshwalcare.com</span>
+                    </p>
+>>>>>>> main
                   </div>
                 </div>
               </div>
@@ -231,6 +269,7 @@ export default function Register() {
               </div>
             </div> */}
 
+<<<<<<< HEAD
               <div className=' border-b mt-8 '>
                 <p className='text-gray-800 text-lg   tracking-wide font-semibold'>
                   Date of Birth
@@ -251,6 +290,101 @@ export default function Register() {
                     {months?.map((month) => (
                       <option className='py-4' key={month}>
                         {month}
+=======
+            <div className='birthdate border-b section'>
+              <p className='text-white text-lg  tracking-wide my-2 font-light mb-4'>
+                Date of Birth
+              </p>
+              <div className='birthdate-input'>
+                <input
+                  onChange={formDataChange}
+                  name='day'
+                  className='numberInput text-blue-800'
+                  type='number'
+                  placeholder='Day'
+                />
+                <select
+                  className='text-blue-800'
+                  name='month'
+                  onChange={formDataChange}>
+                  <option>Month</option>
+                  {months?.map((month) => (
+                    <option key={month}>{month}</option>
+                  ))}
+                </select>
+                <input
+                  onChange={formDataChange}
+                  className='numberInput text-blue-800'
+                  type='number'
+                  name='year'
+                  placeholder='Year'
+                />
+              </div>
+              <span>E.g 12 October 1983</span>
+            </div>
+            <div className='contact section'>
+              <div className='mt-1 text-white'>
+                <label className='text-xs text-white'>Email</label>
+                <input
+                  className='p-2 rounded w-full text-blue-800 font-medium'
+                  onChange={formDataChange}
+                  name='email'
+                  type='text'
+                />
+              </div>
+              <div className='mt-1 '>
+                <label className='text-xs text-white'>
+                  Contact Phone Number
+                </label>
+                <div className="flex space-x-2 ">
+                <select onChange={formDataChange} name='contactCode' className="p-3 rounded">
+                  {codes?.map(code => (
+                    <option key={code} value={code}>{code}</option>
+                  ))}
+                </select>
+                <input
+                  className='p-2 rounded w-full text-blue-800 font-medium'
+                  onChange={formDataChange}
+                  name='contactPhone'
+                  type='number'
+                  value={formData.contactPhone}
+                />
+                </div>
+
+              </div>
+              <div className='mt-1'>
+                <label className='text-xs text-white'>
+                  Whatsapp Phone Number
+                </label>
+                <div className="flex space-x-2 ">
+                <select onChange={formDataChange} name="whatsAppCode" className="p-3 rounded">
+                  {codes?.map(code => (
+                    <option key={code} value={code}>{code}</option>
+                  ))}
+                </select>
+                <input
+                  className='p-2 rounded w-full text-blue-800 font-medium'
+                  onChange={formDataChange}
+                  name='whatsappPhone'
+                  type='number'
+                  value={formData.whatsappPhone}
+                />
+                </div>
+              </div>
+            </div>
+            <div className='section'>
+              <div className='mt-1 '>
+                <label className='text-xs text-white'>Select Blood Group</label>
+                <select
+                  onChange={formDataChange}
+                  name='bloodGroup'
+                  className='blood-group bg-white rounded w-full text-sm '>
+                  <option value='t'>Blood Groups</option>
+                  {["A+", "A-", "B+", "B-", "O+", "O-", "AB+", "AB-"]?.map(
+                    (val) => (
+                      <option value={val} key={val}>
+                        {val}
+>>>>>>> main
                       </option>
                     ))}
                   </select>
@@ -451,6 +585,28 @@ export default function Register() {
                   for any false or incorrect information.
                 </p>
               </div>
+<<<<<<< HEAD
+=======
+              <p>
+                <span className='text-3xl'>T</span>his information will not be
+                used for any commercial benefit. The purpose of this initiative
+                is to help each other during need.
+              </p>
+              <p>
+                <span className='text-3xl'>Y</span>our information in this form
+                does not qualify for you to donate blood to the needy patient. The donor must produce all his information to the 
+                doctor and seek further guidance on eligibility to donate at every instance of blood donation.
+              </p>
+              <p>
+                <span className='text-3xl'>I</span>t is the responsibility of
+                the donor and the person seeking help from the donor to verify
+                each other’s information before engaging in any transaction.
+                Team Oshwal Care will just share the information as provided by
+                the user of this platform. Team Oshwal Care is not liable for
+                any false or incorrect information.
+              </p>
+            </div>
+>>>>>>> main
 
               <div className='mt-8 flex items-center space-x-4 '>
                 <input
@@ -587,6 +743,7 @@ const Equipment = ({ label, imageInput, name }) => {
 ///////////////////////////////////////////////////////////////////////////////
 const DonationRequirements = () => {
   return (
+<<<<<<< HEAD
     <div className='font-normal mb-4'>
       <p className=' text-gray-700 text-lg font-semibold mt-2 '>
         You can only donate blood if:
@@ -598,6 +755,18 @@ const DonationRequirements = () => {
         <li>Its been more than 6 months since you got a tatoo</li>
         <li>Taking anti-depressants at the normal prescribed doses</li>
         <li>Taking blood medications and blood pressure is stable</li>
+=======
+    <div className='text-blue-900 bg-blue-50 p-2 font-normal '>
+      <p className=' text-md font-bold mt-2 text-blue-800 '>
+        Blood can only be donated if you:
+      </p>
+      <ol className='list-disc p-2 px-4 text-blue-800 text-sm flex space-y-2 flex-col'>
+        <li>Are fit and healthy</li>
+        <li>Are between age 18 and 55 years</li>
+        <li>Weigh more than 50 kgs</li>
+        <li>Have tatoo which is minimum of 6 months and older</li>
+        <li>Have stable blood pressure</li>
+>>>>>>> main
       </ol>
     </div>
   );
@@ -648,28 +817,40 @@ const uploadCloudinaryImages = (equipmentImages) =>
     Promise.all(uploadImages(equipmentImages)).then(res).catch(rej)
   );
 
-const postForm = (formData, images) =>
-  fetch("/api/register", {
+const postForm = (formData) =>{
+  console.log({formData})
+  const data = parseFormData(formData)
+  return fetch("/api/register", {
     method: "POST",
-    body: JSON.stringify({ ...formData, images }),
-  }).then((res) => res.json());
+    body: JSON.stringify({ ...data }),
+    })}
 
-const submitFormData = (formData) => (images) =>
-  Task((rej, res) => postForm(formData, images).then(res).catch(rej));
 
+const parseFormData = ({formData}) => {
+  console.log({formData})
+  const {contactCode,contactPhone,whatsappPhone,whatsAppCode,...otherFormData} = formData
+  let parsedData = otherFormData
+  if(contactCode && contactPhone){
+    parsedData = {...parsedData,contactPhone: `${contactCode.split('\t')[0]} ${contactPhone}`}
+  }
+
+  if(whatsAppCode && whatsappPhone){
+    parsedData = {...parsedData,whatsappPhone: `${whatsAppCode.split('\t')[0]} ${whatsappPhone}`}
+  }
+
+  return parsedData
+}
+
+const submitFormData = (formData) => {
+  console.log({f:formData})
+  return Task((rej, res) => postForm(formData).then(res).catch(rej));
+}
 const parseImages = (images) =>
   images?.map(({ url, tags }) => ({ url, tag: tags[0] }));
-
-const operation = ({ equipmentImages, formData }) =>
-  uploadCloudinaryImages(equipmentImages)
-    .map(parseImages)
-    .chain(submitFormData(formData))
-    .fork(
-      (x) => x,
-      (x) => x
-    );
+   
 
 const codes = [
+<<<<<<< HEAD
   "+1	🇨🇦",
   "+1	🇺🇸",
   "+1242	🇧🇸",
@@ -693,6 +874,32 @@ const codes = [
   "+1869	🇰🇳",
   "+1876	🇯🇲",
   "+1939	🇵🇷",
+=======
+  "+254	🇰🇪	KE",
+  "+1	🇨🇦	CA",
+  "+1	🇺🇸	US",
+  "+1242	🇧🇸	BS",
+  "+1246	🇧🇧	BB",
+  "+1264	🇦🇮	AI",
+  "+1268	🇦🇬	AG",
+  "+1284	🇻🇬	VG",
+  "+1340	🇻🇮	VI",
+  "+1441	🇧🇲	BM",
+  "+1473	🇬🇩	GD",
+  "+1649	🇹🇨	TC",
+  "+1664	🇲🇸	MS",
+  "+1670	🇲🇵	MP",
+  "+1671	🇬🇺	GU",
+  "+1684	🇦🇸	AS",
+  "+1758	🇱🇨	LC",
+  "+1767	🇩🇲	DM",
+  "+1784	🇻🇨	VC",
+  "+1849	🇩🇴	DO",
+  "+1868	🇹🇹	TT",
+  "+1869	🇰🇳	KN",
+  "+1876	🇯🇲	JM",
+  "+1939	🇵🇷	PR",
+>>>>>>> main
   "+20	🇪🇬	EG",
   "+211	🇸🇸	SS",
   "+212	🇲🇦	MA",
@@ -732,7 +939,6 @@ const codes = [
   "+251	🇪🇹	ET",
   "+252	🇸🇴	SO",
   "+253	🇩🇯	DJ",
-  "+254	🇰🇪	KE",
   "+255	🇹🇿	TZ",
   "+256	🇺🇬	UG",
   "+257	🇧🇮	BI",

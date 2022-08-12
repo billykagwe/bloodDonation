@@ -45,159 +45,163 @@ export default function Register() {
           type='image/x-icon'
         />
       </Head>
-      <div className='p-4  font-medium register mx-auto max-w-4xl'>
-        <div className='flex flex-col items-center justify-center pt-3'>
-          <Image width={150} height={150} alt='logo' src='/logo.png' />
-        </div>
-
-        {state.matches("loading") && (
-          <div className=' flex justify-center' disabled>
-            <Image
-              alt='loading...'
-              height={200}
-              width={200}
-              src='/spinner.svg'
-              className='block'
-            />
+      <main className='bg-gray-50'>
+        <div className='p-4  font-medium register mx-auto max-w-4xl bg-white'>
+          <div className='flex flex-col items-center justify-center pt-3'>
+            <Image width={150} height={150} alt='logo' src='/logo.png' />
           </div>
-        )}
-        {state.matches("error") && (
-          <div className='inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full'>
-            <div className='bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4'>
-              <div className='sm:flex sm:items-start'>
-                <div className='mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10'>
-                  <svg
-                    className='h-6 w-6 text-red-600'
-                    xmlns='http://www.w3.org/2000/svg'
-                    fill='none'
-                    viewBox='0 0 24 24'
-                    stroke='currentColor'
-                    aria-hidden='true'>
-                    <path
-                      strokeLinecap='round'
-                      strokeLinejoin='round'
-                      strokeWidth='2'
-                      d='M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z'
-                    />
-                  </svg>
+
+          {state.matches("loading") && (
+            <div className=' flex justify-center' disabled>
+              <Image
+                alt='loading...'
+                height={200}
+                width={200}
+                src='/spinner.svg'
+                className='block'
+              />
+            </div>
+          )}
+          {state.matches("error") && (
+            <div className='inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full'>
+              <div className='bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4'>
+                <div className='sm:flex sm:items-start'>
+                  <div className='mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10'>
+                    <svg
+                      className='h-6 w-6 text-red-600'
+                      xmlns='http://www.w3.org/2000/svg'
+                      fill='none'
+                      viewBox='0 0 24 24'
+                      stroke='currentColor'
+                      aria-hidden='true'>
+                      <path
+                        strokeLinecap='round'
+                        strokeLinejoin='round'
+                        strokeWidth='2'
+                        d='M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z'
+                      />
+                    </svg>
+                  </div>
+                  <div className='mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left'>
+                    <h3
+                      className='text-lg leading-6 font-medium text-gray-900'
+                      id='modal-title'>
+                      Registration Failed
+                    </h3>
+                    <div className='mt-2'>
+                      <span className='text-sm text-gray-500'>
+                        A user with a similar email address already exists.
+                        Please use a different email or contact admin
+                      </span>
+                    </div>
+                  </div>
                 </div>
-                <div className='mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left'>
-                  <h3
-                    className='text-lg leading-6 font-medium text-gray-900'
-                    id='modal-title'>
-                    Registration Failed
-                  </h3>
+                <button
+                  onClick={() => send({ type: "RETRY" })}
+                  className='block mx-auto bg-red-100 mt-2 text-red-500 p-1 rounded  w-32 font-semibold tracking-wide hover:bg-red-200'>
+                  RETRY
+                </button>
+              </div>
+            </div>
+          )}
+          {/* some comments */}
+          {state.matches("success") && (
+            <div className='inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full'>
+              <div className='bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4'>
+                <div className='sm:flex sm:items-start'>
+                  <div className='mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-green-100 sm:mx-0 sm:h-10 sm:w-10'>
+                    <svg
+                      xmlns='http://www.w3.org/2000/svg'
+                      className='h-5 w-5'
+                      viewBox='0 0 20 20'
+                      fill='currentColor'>
+                      <path
+                        fillRule='evenodd'
+                        d='M5 2a1 1 0 011 1v1h1a1 1 0 010 2H6v1a1 1 0 01-2 0V6H3a1 1 0 010-2h1V3a1 1 0 011-1zm0 10a1 1 0 011 1v1h1a1 1 0 110 2H6v1a1 1 0 11-2 0v-1H3a1 1 0 110-2h1v-1a1 1 0 011-1zM12 2a1 1 0 01.967.744L14.146 7.2 17.5 9.134a1 1 0 010 1.732l-3.354 1.935-1.18 4.455a1 1 0 01-1.933 0L9.854 12.8 6.5 10.866a1 1 0 010-1.732l3.354-1.935 1.18-4.455A1 1 0 0112 2z'
+                        clipRule='evenodd'
+                      />
+                    </svg>
+                  </div>
+                  <div className='mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left'>
+                    <h3
+                      className='text-lg text-green-600 leading-6 font-medium '
+                      id='modal-title'>
+                      Registration Completed Successfully
+                    </h3>
+                    <div className='mt-2 text-sm bg-white text-gray-500'>
+                      <span className=' block'>
+                        Thank you for filling out the registration form.
+                      </span>
+                      <span>Please check your email inbox.</span>
+                      <span>Please also check your junk email box.</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+          {state.matches("idle") && (
+            <div className='max-w-xl w-full mx-auto  '>
+              <div className=' my-4 border-t  '>
+                <p className='text-gray-800 text-xl  tracking-wide font-semibold'>
+                  Dear Well Wisher
+                </p>
+
+                <p className=' text-gray-800 font-medium  text-md  leading-6 mt-2      '>
+                  Please fill the following form for creating a data bank for
+                  blood donors.
+                </p>
+                <p className=' text-gray-800 font-medium  text-md  leading-6 mt-1      '>
+                  Please note that this data will only be used for the above
+                  purpose intended.
+                </p>
+              </div>
+              <DonationRequirements />
+              <div className=''>
+                <div className=' border-b'>
+                  <div className='mt-1 '>
+                    <label className='text-xs'>First Name *</label>
+                    <input
+                      onChange={formDataChange}
+                      name='firstName'
+                      type='text'
+                      className='p-2 rounded w-full border border-gray-500 block mt-1 text-gray-800 font-medium '
+                    />
+                  </div>
+                  <div className='mt-2 '>
+                    <label className='text-xs '>Middle Name *</label>
+
+                    <input
+                      onChange={formDataChange}
+                      name='middleName'
+                      type='text'
+                      className='p-2 rounded w-full border border-gray-500  text-blue-800 font-medium '
+                    />
+                  </div>
                   <div className='mt-2'>
-                    <span className='text-sm text-gray-500'>
-                      A user with a similar email address already exists. Please
-                      use a different email or contact admin
-                    </span>
-                  </div>
-                </div>
-              </div>
-              <button
-                onClick={() => send({ type: "RETRY" })}
-                className='block mx-auto bg-red-100 mt-2 text-red-500 p-1 rounded  w-32 font-semibold tracking-wide hover:bg-red-200'>
-                RETRY
-              </button>
-            </div>
-          </div>
-        )}
-        {/* some comments */}
-        {state.matches("success") && (
-          <div className='inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full'>
-            <div className='bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4'>
-              <div className='sm:flex sm:items-start'>
-                <div className='mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-green-100 sm:mx-0 sm:h-10 sm:w-10'>
-                  <svg
-                    xmlns='http://www.w3.org/2000/svg'
-                    className='h-5 w-5'
-                    viewBox='0 0 20 20'
-                    fill='currentColor'>
-                    <path
-                      fillRule='evenodd'
-                      d='M5 2a1 1 0 011 1v1h1a1 1 0 010 2H6v1a1 1 0 01-2 0V6H3a1 1 0 010-2h1V3a1 1 0 011-1zm0 10a1 1 0 011 1v1h1a1 1 0 110 2H6v1a1 1 0 11-2 0v-1H3a1 1 0 110-2h1v-1a1 1 0 011-1zM12 2a1 1 0 01.967.744L14.146 7.2 17.5 9.134a1 1 0 010 1.732l-3.354 1.935-1.18 4.455a1 1 0 01-1.933 0L9.854 12.8 6.5 10.866a1 1 0 010-1.732l3.354-1.935 1.18-4.455A1 1 0 0112 2z'
-                      clipRule='evenodd'
+                    <label className='text-xs '>Last Name *</label>
+
+                    <input
+                      onChange={formDataChange}
+                      name='lastName'
+                      type='text'
+                      className='p-2 rounded w-full border border-gray-500  text-blue-800 font-medium '
                     />
-                  </svg>
-                </div>
-                <div className='mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left'>
-                  <h3
-                    className='text-lg text-green-600 leading-6 font-medium '
-                    id='modal-title'>
-                    Registration Completed Successfully
-                  </h3>
-                  <div className='mt-2 text-sm bg-white text-gray-500'>
-                    <span className=' block'>
-                      Thank you for filling out the registration form.
-                    </span>
-                    <span>Please check your email inbox.</span>
-                    <span>Please also check your junk email box.</span>
+                  </div>
+                  <div className='mt-2 '>
+                    <label className='text-xs '>Occupation *</label>
+
+                    <input
+                      onChange={formDataChange}
+                      name='occupation'
+                      type='text'
+                      className='p-2 rounded w-full border border-gray-500  text-blue-800 font-medium '
+                    />
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-        )}
-        {state.matches("idle") && (
-          <div className='max-w-xl w-full mx-auto  '>
-            <div className=' my-4 border-t  '>
-              <p className='text-gray-900 text-3xl mt-4 mb-4'>
-                Dear Well Wisher
-              </p>
 
-              <p className=' text-gray-600 font-normal  text-md  leading-7       '>
-                Please fill the following form for creating a data bank for
-                blood donors. Please note that this data will only be used for
-                the above purpose intended.
-              </p>
-            </div>
-            <DonationRequirements />
-            <div className='section'>
-              <div className='names border-b'>
-                <div className='mt-1 '>
-                  <label className='text-xs text-white'>First Name *</label>
-                  <input
-                    onChange={formDataChange}
-                    name='firstName'
-                    type='text'
-                    className='p-2 rounded w-full text-blue-800 font-medium '
-                  />
-                </div>
-                <div className='mt-1 '>
-                  <label className='text-xs text-white'>Middle Name *</label>
-
-                  <input
-                    onChange={formDataChange}
-                    name='middleName'
-                    type='text'
-                    className='p-2 rounded w-full text-blue-800 font-medium '
-                  />
-                </div>
-                <div className='mt-1 '>
-                  <label className='text-xs text-white'>Last Name *</label>
-
-                  <input
-                    onChange={formDataChange}
-                    name='lastName'
-                    type='text'
-                    className='p-2 rounded w-full text-blue-800 font-medium '
-                  />
-                </div>
-                <div className='mt-1 '>
-                  <label className='text-xs text-white'>Occupation *</label>
-
-                  <input
-                    onChange={formDataChange}
-                    name='occupation'
-                    type='text'
-                    className='p-2 rounded w-full text-blue-800 font-medium '
-                  />
-                </div>
-              </div>
-            </div>
-
-            {/* <div className='border-b section'>
+              {/* <div className='border-b '>
               <p className='text--200 text-lg  tracking-wide my-2 font-light mb-4'>
                 If you are a doctor or in any medical related proffesion, would
                 you like to volunteer for your services to the community when
@@ -227,142 +231,158 @@ export default function Register() {
               </div>
             </div> */}
 
-            <div className='birthdate border-b section'>
-              <p className='text-white text-lg  tracking-wide my-2 font-light mb-4'>
-                Date of Birth
-              </p>
-              <div className='birthdate-input'>
-                <input
-                  onChange={formDataChange}
-                  name='day'
-                  className='numberInput text-blue-800'
-                  type='number'
-                  placeholder='Day'
-                />
-                <select
-                  className='text-blue-800'
-                  name='month'
-                  onChange={formDataChange}>
-                  <option>Month</option>
-                  {months?.map((month) => (
-                    <option key={month}>{month}</option>
-                  ))}
-                </select>
-                <input
-                  onChange={formDataChange}
-                  className='numberInput text-blue-800'
-                  type='number'
-                  name='year'
-                  placeholder='Year'
-                />
-              </div>
-              <span>E.g 12 October 1983</span>
-            </div>
-            <div className='contact section'>
-              <div className='mt-1 text-white'>
-                <label className='text-xs text-white'>Email</label>
-                <input
-                  className='p-2 rounded w-full text-blue-800 font-medium'
-                  onChange={formDataChange}
-                  name='email'
-                  type='text'
-                />
-              </div>
-              <div className='mt-1 '>
-                <label className='text-xs text-white'>
-                  Contact Phone Number
-                </label>
-                <input
-                  className='p-2 rounded w-full text-blue-800 font-medium'
-                  onChange={formDataChange}
-                  name='contactPhone'
-                  type='number'
-                  value={formData.contactPhone}
-                />
-              </div>
-              <div className='mt-1'>
-                <label className='text-xs text-white'>
-                  Whatsapp Phone Number
-                </label>
-                <input
-                  className='p-2 rounded w-full text-blue-800 font-medium'
-                  onChange={formDataChange}
-                  name='whatsappPhone'
-                  type='number'
-                  value={formData.whatsappPhone}
-                />
-              </div>
-            </div>
-            <div className='section'>
-              <div className='mt-1 '>
-                <label className='text-xs text-white'>Select Blood Group</label>
-                <select
-                  onChange={formDataChange}
-                  name='bloodGroup'
-                  className='blood-group bg-white rounded w-full text-sm '>
-                  <option value='t'>Blood Groups</option>
-                  {["A+", "A-", "B+", "B-", "O+", "O-", "AB+", "AB-"]?.map(
-                    (val) => (
-                      <option value={val} key={val}>
-                        {val}
+              <div className=' border-b mt-8 '>
+                <p className='text-gray-800 text-lg   tracking-wide font-semibold'>
+                  Date of Birth
+                </p>
+                <div className='flex items-center bg-whte space-x-3'>
+                  <input
+                    onChange={formDataChange}
+                    name='day'
+                    className='numberInput text-blue-800'
+                    type='number'
+                    placeholder='Day'
+                  />
+                  <select
+                    className='text-blue-800 bg-white block border py-3 px-2 border-gray-700 rounded'
+                    name='month'
+                    onChange={formDataChange}>
+                    <option>Month</option>
+                    {months?.map((month) => (
+                      <option className='py-4' key={month}>
+                        {month}
                       </option>
-                    )
-                  )}
-                </select>
-              </div>
-            </div>
-            <div className='section'>
-              <p className='text-white text-md font-medium  my-2  mb-8'>
-                Will you volunteer for blood donation when there is a
-                requirement for your blood group. A Member from Team Oshwal Care
-                will contact you for the same.
-              </p>
-              <div className='docter-checkbox border-b'>
-                <div>
-                  <label>Yes</label>
+                    ))}
+                  </select>
                   <input
-                    name='willingVolunteer'
-                    value='no'
-                    className='checkbox'
-                    type='checkbox'
                     onChange={formDataChange}
+                    className='numberInput text-blue-800'
+                    type='number'
+                    name='year'
+                    placeholder='Year'
                   />
                 </div>
-                <div>
-                  <label>No</label>
+                <span>E.g 12 October 1983</span>
+              </div>
+              <div className=' '>
+                <div className='mt-1'>
+                  <label className=' text-gray-800    tracking-wide font-semibold'>
+                    Email
+                  </label>
                   <input
-                    name='willingVolunteer'
-                    value={"no"}
-                    className='checkbox '
+                    className='p-2 rounded w-full border border-gray-700 block mt-1 text-blue-800 font-medium'
                     onChange={formDataChange}
-                    type='checkbox'
+                    name='email'
+                    type='text'
+                  />
+                </div>
+                <div className='mt-6 '>
+                  <label className=' text-gray-800    tracking-wide font-semibold '>
+                    Contact Phone Number
+                  </label>
+                  <div className='flex space-x-2 mt-2 '>
+                    <ul className=' h-12 overflow-scroll border'>
+                      {codes?.map((code) => (
+                        <li key={code}> {code}</li>
+                      ))}
+                    </ul>
+                    <input
+                      className='p-2 rounded w-full text-blue-800 border border-gray-700 font-medium'
+                      onChange={formDataChange}
+                      name='contactPhone'
+                      type='number'
+                      value={formData.contactPhone}></input>
+                  </div>
+                </div>
+                <div className='mt-6'>
+                  <label className='text-gray-800    tracking-wide font-semibold '>
+                    Whatsapp Phone Number
+                  </label>
+                  <input
+                    className='p-2 rounded w-full block mt-2 border border-gray-700   text-blue-800 font-medium'
+                    onChange={formDataChange}
+                    name='whatsappPhone'
+                    type='number'
+                    value={formData.whatsappPhone}
                   />
                 </div>
               </div>
-            </div>
-            <div className='contact border-b section'>
-              <div className='mt-1'>
-                <label className='text-xs text-white'>Current City *</label>
-                <input
-                  onChange={formDataChange}
-                  name='city'
-                  type='text'
-                  className='p-2 rounded w-full text-blue-800 font-medium'
-                />
+              <div className=' mt-6'>
+                <div className='mt-1 '>
+                  <label className=' text-gray-800   tracking-wide font-semibold'>
+                    Select Blood Group
+                  </label>
+                  <select
+                    onChange={formDataChange}
+                    name='bloodGroup'
+                    className=' bg-white border border-gray-700 p-3 block mt-2 rounded w-full text-sm '>
+                    <option value='t'>Blood Groups</option>
+                    {["A+", "A-", "B+", "B-", "O+", "O-", "AB+", "AB-"]?.map(
+                      (val) => (
+                        <option value={val} key={val}>
+                          {val}
+                        </option>
+                      )
+                    )}
+                  </select>
+                </div>
               </div>
-              <div className='mt-1'>
-                <label className='text-xs text-white'>County</label>
+              <div className=' mt-12'>
+                <p className='text-gray-800 text-base tracking-wide  font-semibold'>
+                  Will you volunteer for blood donation when there is a
+                  requirement for your blood group. A Member from Team Oshwal
+                  Care will contact you for the same.
+                </p>
+                <div className='flex space-x-4 mt-3 items-center border-b'>
+                  <div className='flex items-center'>
+                    <label>Yes</label>
+                    <input
+                      name='willingVolunteer'
+                      value='no'
+                      className='checkbox'
+                      type='checkbox'
+                      onChange={formDataChange}
+                    />
+                  </div>
+                  <div className='flex items-center'>
+                    <label>No</label>
+                    <input
+                      name='willingVolunteer'
+                      value={"no"}
+                      className='checkbox '
+                      onChange={formDataChange}
+                      type='checkbox'
+                    />
+                  </div>
+                </div>
+              </div>
+              <div className=' border-b '>
+                <div className='mt-2'>
+                  <label className='text-gray-800 block mt-1   tracking-wide font-semibold'>
+                    Current City *
+                  </label>
+                  <input
+                    onChange={formDataChange}
+                    name='city'
+                    type='text'
+                    className='p-2 rounded w-full border border-gray-700  font-medium'
+                  />
+                </div>
+                <div className='mt-4'>
+                  <label className='text-gray-800  block mt-1  tracking-wide font-semibold'>
+                    County
+                  </label>
 
-                <input
-                  onChange={formDataChange}
-                  name='county'
-                  type='text'
-                  className='p-2 rounded w-full text-blue-800 font-medium'
-                />
+                  <input
+                    onChange={formDataChange}
+                    name='county'
+                    type='text'
+                    className='p-2 rounded w-full border border-gray-700  font-medium'
+                  />
+                </div>
               </div>
-            </div>
-            {/* 
-            <div className='section'>
+              {/* 
+            <div className=''>
               <p className='text-white text-lg  tracking-wide my-2 font-light mb-4'>
                 Do you have any of the following health equipments which can be
                 lent to the community members when they are in need?
@@ -400,65 +420,67 @@ export default function Register() {
                 />
               </div>
             </div> */}
-            <p className='mb-6 text-4xl italic underline  mt-10 text-gray-900 font-medium'>
-              Disclaimer
-            </p>
+              <p className='mb-6 text-4xl italic underline  mt-10 text-gray-900 font-medium'>
+                Disclaimer
+              </p>
 
-            <div className='text-gray-600 text-normal leading-8  font-normal  flex space-y-4 flex-col '>
-              <div className='flex space-x-3'>
+              <div className='text-gray-600 text-normal leading-8  font-normal  flex space-y-4 flex-col '>
+                <div className='flex space-x-3'>
+                  <p>
+                    <span className='text-3xl'>T</span>he information given by
+                    you will be used in the same format by team Oshwal Care for
+                    the purpose of helping the needy as per their requirements.
+                  </p>
+                </div>
                 <p>
-                  <span className='text-3xl'>T</span>he information given by you
-                  will be used in the same format by team Oshwal Care for the
-                  purpose of helping the needy as per their requirements.
+                  <span className='text-3xl'>T</span>his information will not be
+                  used for any commercial benefit. The purpose of this
+                  initiative is to help each other during need.
+                </p>
+                <p>
+                  <span className='text-3xl'>Y</span>our information in this
+                  form does not qualify for you to donate blood to the needy
+                  patient.
+                </p>
+                <p>
+                  <span className='text-3xl'>I</span>t is the responsibility of
+                  the donor and the person seeking help from the donor to verify
+                  each other’s information before engaging in any transaction.
+                  Team Oshwal Care will just share the information as provided
+                  by the user of this platform. Team Oshwal Care is not liable
+                  for any false or incorrect information.
                 </p>
               </div>
-              <p>
-                <span className='text-3xl'>T</span>his information will not be
-                used for any commercial benefit. The purpose of this initiative
-                is to help each other during need.
-              </p>
-              <p>
-                <span className='text-3xl'>Y</span>our information in this form
-                does not qualify for you to donate blood to the needy patient.
-              </p>
-              <p>
-                <span className='text-3xl'>I</span>t is the responsibility of
-                the donor and the person seeking help from the donor to verify
-                each other’s information before engaging in any transaction.
-                Team Oshwal Care will just share the information as provided by
-                the user of this platform. Team Oshwal Care is not liable for
-                any false or incorrect information.
-              </p>
-            </div>
 
-            <div className='mt-8 flex items-center space-x-4 '>
-              <input
-                checked={agreed}
-                onChange={() => setAgreed(!agreed)}
-                className='h-8 w-8'
-                type='checkbox'
-              />
-              <p className=' text-gray-900 inline-block    '>
-                The information provided by me is correct and I have read all
-                the points mentioned in the disclaimer
-              </p>
-            </div>
+              <div className='mt-8 flex items-center space-x-4 '>
+                <input
+                  checked={agreed}
+                  onChange={() => setAgreed(!agreed)}
+                  className='h-8 w-8'
+                  type='checkbox'
+                />
+                <p className=' text-gray-900 inline-block    '>
+                  The information provided by me is correct and I have read all
+                  the points mentioned in the disclaimer
+                </p>
+              </div>
 
-            {state.context.error && (
-              <p style={{ color: "red" }}>{state.context.error}</p>
-            )}
-            <button
-              onClick={() =>
-                send({ type: "SUBMIT", data: { formData, equipmentImages } })
-              }
-              className={`submit mt-8 block rounded p-2 w-full text-center ${
-                agreed ? "bg-blue-600" : "bg-gray-200"
-              } text-white `}>
-              Submit
-            </button>
-          </div>
-        )}
-      </div>
+              {state.context.error && (
+                <p style={{ color: "red" }}>{state.context.error}</p>
+              )}
+              <button
+                onClick={() =>
+                  send({ type: "SUBMIT", data: { formData, equipmentImages } })
+                }
+                className={`submit mt-8 block rounded p-2 w-full text-center ${
+                  agreed ? "bg-blue-600" : "bg-gray-200"
+                } text-white `}>
+                Submit
+              </button>
+            </div>
+          )}
+        </div>
+      </main>
     </>
   );
 }
@@ -468,7 +490,7 @@ export default function Register() {
 const OxygenConcentrator = ({ imageInput, formData, formDataChange }) => {
   const [show, setShow] = useState();
   return (
-    <div className='equipments border rounded border-blue-400'>
+    <div className=' border rounded border-blue-400'>
       <div
         onClick={() => setShow(!show)}
         className='p-2 flex justify-between cursor-pointer '>
@@ -565,11 +587,11 @@ const Equipment = ({ label, imageInput, name }) => {
 ///////////////////////////////////////////////////////////////////////////////
 const DonationRequirements = () => {
   return (
-    <div className='text-blue-900 bg-blue-50 p-2 font-normal '>
-      <p className=' text-md font-bold mt-2 text-blue-800 '>
+    <div className='font-normal mb-4'>
+      <p className=' text-gray-700 text-lg font-semibold mt-2 '>
         You can only donate blood if:
       </p>
-      <ol className='list-disc p-2 px-4 text-blue-800 text-sm flex space-y-2 flex-col'>
+      <ol className='list-disc p-2 px-4 text-gray-800   flex space-y-2 flex-col'>
         <li>Fit and healthy</li>
         <li>Between age 18 and 55 years</li>
         <li>Weight is more than 50 kgs</li>
@@ -648,29 +670,29 @@ const operation = ({ equipmentImages, formData }) =>
     );
 
 const codes = [
-  "+1	🇨🇦	CA",
-  "+1	🇺🇸	US",
-  "+1242	🇧🇸	BS",
-  "+1246	🇧🇧	BB",
-  "+1264	🇦🇮	AI",
-  "+1268	🇦🇬	AG",
-  "+1284	🇻🇬	VG",
-  "+1340	🇻🇮	VI",
-  "+1441	🇧🇲	BM",
-  "+1473	🇬🇩	GD",
-  "+1649	🇹🇨	TC",
-  "+1664	🇲🇸	MS",
-  "+1670	🇲🇵	MP",
-  "+1671	🇬🇺	GU",
-  "+1684	🇦🇸	AS",
-  "+1758	🇱🇨	LC",
-  "+1767	🇩🇲	DM",
-  "+1784	🇻🇨	VC",
-  "+1849	🇩🇴	DO",
-  "+1868	🇹🇹	TT",
-  "+1869	🇰🇳	KN",
-  "+1876	🇯🇲	JM",
-  "+1939	🇵🇷	PR",
+  "+1	🇨🇦",
+  "+1	🇺🇸",
+  "+1242	🇧🇸",
+  "+1246	🇧🇧",
+  "+1264	🇦🇮",
+  "+1268	🇦🇬",
+  "+1284	🇻🇬",
+  "+1340	🇻🇮",
+  "+1441	🇧🇲",
+  "+1473	🇬🇩",
+  "+1649	🇹🇨",
+  "+1664	🇲🇸",
+  "+1670	🇲🇵",
+  "+1671	🇬🇺",
+  "+1684	🇦🇸",
+  "+1758	🇱🇨",
+  "+1767	🇩🇲",
+  "+1784	🇻🇨",
+  "+1849	🇩🇴",
+  "+1868	🇹🇹",
+  "+1869	🇰🇳",
+  "+1876	🇯🇲",
+  "+1939	🇵🇷",
   "+20	🇪🇬	EG",
   "+211	🇸🇸	SS",
   "+212	🇲🇦	MA",

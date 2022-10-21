@@ -1,6 +1,5 @@
 /** @format */
 
-import React from "react";
 import Image from "next/image";
 import HomePage from "../components/HomePage";
 import Login from "../components/Login";
@@ -9,7 +8,7 @@ import AuthMachine from "../machine/AuthMachine";
 import Head from "next/head";
 function Index() {
   const [state, send] = useMachine(AuthMachine);
-
+  console.log(state.value);
   return (
     <div>
       <Head>
@@ -23,9 +22,7 @@ function Index() {
         />
         <meta name='description' content='Description' />
         <meta name='keywords' content='Keywords' />
-        <link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin/>
-<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet"/>
+
         <link
           sizes='60x60'
           rel='shortcut icon'
@@ -33,20 +30,19 @@ function Index() {
           type='image/x-icon'
         />
       </Head>
-      {state.matches("login") && <Login />}
+      {state.matches("login") && <Login state={state} send={send} />}
 
-      {state.matches("home") && (
+      {state.matches("home.idle") && (
         <>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              alignItems: "center",
-              marginTop: "1rem",
-            }}>
-            <Image width={100} height={100} alt='logo' src='/logo.png' />
+          <div className=' border-b px-8 py-4  flex space-x-8 mx-auto justify-around items-center '>
+            <div className='flex self-center'>
+              <Image width={100} height={100} alt='logo' src='/logo.png' />
+            </div>
+            <div className=' border border-gray-500 rounded cursor-pointer hover:underline px-4'>
+              <button onClick={() => send("LOGOUT")}>logout</button>
+            </div>
           </div>
+
           <HomePage />
         </>
       )}

@@ -8,15 +8,18 @@ import cookie from "cookie";
 
 const handler = async (req, res) => {
   if (req.method === "POST") {
-    const { db } = await connectToDatabase();
-    const collection = db.collection("login");
-    const { email, password } = req.body;
+    try {
+      const { db } = await connectToDatabase();
+      const collection = db.collection("login");
+      const { email, password } = req.body;
 
-    findUser(collection, email)
-      .chain(comparePassword(password))
-      .chain(signToken)
-      // .chain(setAuthHeader(res))
-      .fork(res.json,setAuthHeader(res));
+      return findUser(collection, email)
+        .chain(comparePassword(password))
+        .chain(signToken)
+        .fork((x) => res.json(x), setAuthHeader(res));
+    } catch (error) {
+      res.json({ error: error.message });
+    }
   }
 };
 
@@ -42,9 +45,8 @@ const comparePassword = (password) => (user) =>
   Task((rej, res) =>
     bcrypt
       .compare(password, user?.password)
-      .then((isMatch) =>{
-        console.log({isMatch})
-        return isMatch ? res(user) : rej({ error: "Invalid Credentials" })
+      .then((isMatch) => {
+        return isMatch ? res(user) : rej({ error: "Invalid Credentials" });
       })
       .catch((err) => rej({ error: err }))
   );
@@ -60,6 +62,9 @@ const signToken = (user) => {
 
 //////////////////////////////////////////////////////////////////////////////
 const findUser = (collection, email) =>
-  Task((rej, res) => collection.findOne({ email }).then(user =>
-    user ? res(user) : rej({ error: "User not found" })
-  ).catch(rej));
+  Task((rej, res) =>
+    collection
+      .findOne({ email })
+      .then((user) => (user ? res(user) : rej({ error: "User not found" })))
+      .catch(rej)
+  );

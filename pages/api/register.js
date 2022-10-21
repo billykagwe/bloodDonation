@@ -2,7 +2,6 @@
 
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import { connectToDatabase } from "../../utils/database";
-import sgMail from "@sendgrid/mail";
 import { Task } from "../../utils/types";
 import nodemailer from "nodemailer";
 
@@ -11,7 +10,7 @@ export default async function handler(req, res) {
     const { db } = await connectToDatabase();
     const donors = db.collection("Donors");
     const body = JSON.parse(req.body);
-    
+
     return insertData(donors, body)
       .chain(sendOnboardingEmail(body))
       .fork(res.json, res.json);
@@ -23,9 +22,11 @@ const insertData = (donors, data) =>
     donors
       .insertOne(data)
       .then((x) => {
-        return x?.insertedId ? res(x) : rej({ error: "Could not save data",status:400 });
+        return x?.insertedId
+          ? res(x)
+          : rej({ error: "Could not save data", status: 400 });
       })
-      .catch((x) => rej({ error: x,status:500 }))
+      .catch((x) => rej({ error: x, status: 500 }))
   );
 
 //////////////////////////////////////////////////////////////////////////
@@ -43,7 +44,7 @@ const sendOnboardingEmail = (body) => {
     city,
     county,
     contactPhone,
-    whatsappPhone
+    whatsappPhone,
   } = body;
   return () =>
     Task((rej, res) => {

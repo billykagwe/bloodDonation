@@ -385,45 +385,7 @@ export default function Register() {
                   />
                 </div>
               </div>
-              {/* 
-            <div className=''>
-              <p className='text-white text-lg  tracking-wide my-2 font-light mb-4'>
-                Do you have any of the following health equipments which can be
-                lent to the community members when they are in need?
-              </p>
-              <div className='contact border-b  text-white'>
-                <Equipment
-                  label='Stretcher'
-                  name={"stretcher"}
-                  imageInput={imageInput}
-                />
-                <Equipment
-                  label='A medical Bed'
-                  name={"medicalBed"}
-                  imageInput={imageInput}
-                />
-                <Equipment
-                  label='Adult Walker'
-                  name={"adultWalker"}
-                  imageInput={imageInput}
-                />
-                <OxygenConcentrator
-                  imageInput={imageInput}
-                  formData={formData}
-                  formDataChange={formDataChange}
-                />
-                <Equipment
-                  label='Nebulizer'
-                  name={"nebulizer"}
-                  imageInput={imageInput}
-                />
-                <Equipment
-                  name='babyCrib'
-                  label={"A Baby Crib"}
-                  imageInput={imageInput}
-                />
-              </div>
-            </div> */}
+
               <p className='mb-6 text-4xl italic underline  mt-10 text-gray-900 font-medium'>
                 Disclaimer
               </p>
